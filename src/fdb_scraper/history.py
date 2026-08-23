@@ -740,12 +740,11 @@ def _history_at(versions: pl.DataFrame, checkpoints: list[datetime]) -> pl.DataF
     # load can only ever say "this differs from last time"; naming the week it
     # ran would put every change one week later than it happened.
     #
-    # The first load has no predecessor and keeps its own week: nothing before it
-    # is visible at all, so what it reports is "present at first observation"
-    # rather than an interval. MEANING_NOTES says so for on_website_from, where
-    # that is the 2026-W32 backfill.
+    # The first load has no predecessor, so nothing maps to it and a programme
+    # first seen there gets a null week rather than a fabricated one: it was
+    # already on the site when we started looking and may be any age. Its
+    # first_scraped_at still records when we first saw it.
     preceding = {c: p for c, p in zip(checkpoints[1:], checkpoints[:-1])}
-    preceding[checkpoints[0]] = checkpoints[0]
     # The window is half-open: a version retired *at* a checkpoint was already
     # gone when that load ran, which is what makes a retirement show up as an
     # absence at the checkpoint rather than one checkpoint late.
@@ -793,8 +792,21 @@ def _history_at(versions: pl.DataFrame, checkpoints: list[datetime]) -> pl.DataF
         .with_columns(
             # The week the appearance falls in: the interval ending at the load
             # that first saw it.
+            # When we first saw it -- an observation, so no shift: this is the
+            # load itself, not the interval before it. Never null, which is what
+            # keeps the dataset's own start recoverable as its minimum once
+            # on_website_from goes null for everything the first load found.
+            first_scraped_at=iso_week(pl.col("_seen").list.min()),
+            # When it appeared: the interval ending at the load that first saw
+            # it. Null for a programme the first load already found, whose
+            # arrival predates anything we can see.
             on_website_from=iso_week(
-                pl.col("_seen").list.min().replace_strict(preceding)
+                pl.col("_seen")
+                .list.min()
+                # cast: with a single checkpoint every value maps to the default
+                # and polars would type the whole column Null, which has no
+                # iso_year.
+                .replace_strict(preceding, default=None, return_dtype=TIMESTAMP)
             ),
             # Already the interval: the last load that saw it *is* the checkpoint
             # preceding the one that found it gone, so the week it was last there

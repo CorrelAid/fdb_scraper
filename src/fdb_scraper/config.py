@@ -476,15 +476,23 @@ MEANING_NOTES = {
         "version history groups by. A digest of the identifier rather than an "
         "identifier of its own: it is stable exactly as long as the source URL is"
     ),
+    "first_scraped_at": (
+        "ISO week (e.g. 2026-W34) of the load that first saw this programme. An "
+        "observation rather than an inference, so unlike the other week columns it "
+        "names the week we looked and is never null. Its minimum over the table is "
+        "the week this dataset began, and the rows carrying that minimum are the "
+        "ones the first load found -- exactly those whose on_website_from is null"
+    ),
     "on_website_from": (
         "ISO week (e.g. 2026-W34) in which this programme was first present in the "
         "export. An observation of ours, not a date the source states: the export "
         "ships only its current state, so nothing before this dataset's first load "
-        "is visible and a programme older than that reads as first seen then. The "
-        "week named is the one before the load that first saw it -- the week the "
-        "appearance fell in. The first load, in 2026-W32, has no week before it and "
-        "was a backfill of everything then on the site, so 2026-W32 here means "
-        "\'present at first observation\', not \'appeared that week\'"
+        "is visible. The week named is the one before the load that first saw it "
+        "-- the week the appearance fell in. Null when that load was the first one "
+        "of all: it has no week before it, and a programme it found was already on "
+        "the site when we started looking, so its arrival is not observable and any "
+        "week here would be invented. Those rows are identifiable as the ones whose "
+        "first_scraped_at is the earliest in the table"
     ),
     "last_updated": (
         "ISO week (e.g. 2026-W34) in which this programme\'s export content last "
@@ -496,19 +504,27 @@ MEANING_NOTES = {
         "change, not the absence week (which is on_website_to)"
     ),
     "previous_update_dates": (
-        "one ISO week per observed content change, ascending. Empty for a programme "
-        "that has never changed. Its length is the number of weeks in which a change "
-        "was seen, not the number of changes: a week is a single comparison between "
-        "two loads, so two changes within one week are indistinguishable from one. "
-        "For absent programmes, excludes the final transition (the absence), "
-        "containing only actual content changes"
+        "one ISO week per observed content change, ascending. Each names the week "
+        "the change fell in rather than the week we looked: a load reports only "
+        "that something differs from the load before it, so the week named is the "
+        "one before the load that found the change. Empty for a programme that has "
+        "never changed. Its length is the number of weeks in which a change was "
+        "seen, not the number of changes: a week is a single comparison between two "
+        "loads, so two changes within one week are indistinguishable from one. For "
+        "absent programmes, excludes the final transition (the absence), containing "
+        "only actual content changes"
     ),
     "on_website_to": (
-        "last ISO week in which this programme was still present in the export. Null "
-        "for programmes still present. Observed by comparing loads, so the "
-        "disappearance falls between this week and the next load. For absent "
-        "programmes this may be much later than the last content change "
-        "(last_updated)"
+        "last ISO week in which this programme was still present in the export -- "
+        "so, like the other week columns, the week the departure fell in rather "
+        "than the week we noticed it. No shift is applied here because none is "
+        "needed: the last load that still saw the programme is already the one "
+        "before the load that found it gone. Null for programmes still present, "
+        "which means \'still there\' and not \'unknown\'. For absent programmes this "
+        "may be much later than the last content change (last_updated), and it is "
+        "always known -- a departure is only ever observed with a load on either "
+        "side of it, unlike on_website_from, which is null when the programme "
+        "predates the first load"
     ),
     "absent": (
         "true when no version of this programme is current any more: it was in an "

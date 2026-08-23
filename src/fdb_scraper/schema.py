@@ -273,9 +273,19 @@ COLUMNS: dict[str, pa.Column] = {
     # Not in the export, which only ever ships the current state. Derived from the
     # scd2 table by :func:`fdb_scraper.history.fold`, which is why they are absent
     # from a plain :func:`fdb_scraper.collect` -- see EXPORT_FIELDS.
-    "on_website_from": pa.Column(
+    # When we first saw it, not when it appeared: an observation, so it is never
+    # null and its minimum over the table is the week this dataset started.
+    "first_scraped_at": pa.Column(
         pl.String,
         nullable=False,
+        checks=pa.Check.str_matches(ISO_WEEK_PATTERN),
+    ),
+    # Null for a programme the very first load already found: it was on the site
+    # before we started looking, so its arrival week is not observable. Those are
+    # exactly the rows whose first_scraped_at is the table's minimum.
+    "on_website_from": pa.Column(
+        pl.String,
+        nullable=True,
         checks=pa.Check.str_matches(ISO_WEEK_PATTERN),
     ),
     # Null until the programme changes for the first time: there is no
@@ -351,6 +361,7 @@ EXPORT_FIELDS: tuple[str, ...] = (
 
 # Derived from the load history rather than from any single export.
 HISTORY_COLUMNS: tuple[str, ...] = (
+    "first_scraped_at",
     "on_website_from",
     "last_updated",
     "previous_update_dates",

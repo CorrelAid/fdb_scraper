@@ -445,7 +445,10 @@ def test_fold_takes_first_seen_from_the_earliest_version() -> None:
     assert folded["title"] == "B3", "the live version's content should win"
     # Weeks name the interval a change fell in, not the load that spotted it:
     # the W03 load reports what changed during W02.
-    assert folded["on_website_from"] == "2026-W02"
+    assert folded["first_scraped_at"] == "2026-W02", "when we first saw it"
+    assert folded["on_website_from"] is None, (
+        "the first load has no week before it, so the arrival is unobservable"
+    )
     assert folded["previous_update_dates"] == ["2026-W02", "2026-W03"]
     assert folded["last_updated"] == "2026-W03"
     assert not folded["absent"]
@@ -463,7 +466,8 @@ def test_fold_reports_a_programme_with_no_open_window_as_absent() -> None:
 
     assert folded["absent"]
     assert folded["title"] == "C2", "the last retired version's content is kept"
-    assert folded["on_website_from"] == "2026-W02"
+    assert folded["first_scraped_at"] == "2026-W02"
+    assert folded["on_website_from"] is None
     # last_updated is the last content change, not the absence
     assert folded["last_updated"] == "2026-W02"
     # The last week it was still there. Nothing loaded in W04 -- the versions
@@ -492,6 +496,33 @@ def test_iso_week_uses_the_iso_year_at_a_year_boundary() -> None:
         .to_list()
     )
     assert weeks == ["2026-W01", "2026-W01", "2026-W53"]
+
+
+def test_first_scraped_at_survives_the_null_arrival_week() -> None:
+    """The dataset's own start stays readable once arrivals go null.
+
+    ``min(on_website_from)`` used to answer "when did this dataset start". It
+    cannot any more -- everything the first load found has a null arrival -- so
+    ``first_scraped_at`` carries it instead, and is never null.
+    """
+    frm, to = VALIDITY_COLUMNS
+    folded = fold(
+        _versions([
+            # found by the first load: on the site before we started looking
+            {"id_hash": "old", "url": "u/o", "title": "O", frm: _monday(1), to: None},
+            # first seen by the second load, so it arrived during the week before
+            {"id_hash": "new", "url": "u/n", "title": "N", frm: _monday(2), to: None},
+        ])
+    ).sort("url")
+    rows = {r["url"]: r for r in folded.to_dicts()}
+
+    assert rows["u/o"]["first_scraped_at"] == "2026-W02"
+    assert rows["u/o"]["on_website_from"] is None, "an unobservable arrival is not a week"
+    assert rows["u/n"]["first_scraped_at"] == "2026-W03", "the load that saw it"
+    assert rows["u/n"]["on_website_from"] == "2026-W02", "the week it appeared in"
+
+    assert folded["first_scraped_at"].null_count() == 0
+    assert folded["first_scraped_at"].min() == "2026-W02", "the dataset's first week"
 
 
 def test_a_manual_scrape_between_two_schedules_is_not_a_checkpoint() -> None:

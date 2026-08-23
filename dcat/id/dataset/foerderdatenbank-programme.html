@@ -39,7 +39,7 @@
 </head>
 <body>
 <h1>Förderprogramme aus der Förderdatenbank des Bundes</h1>
-<div class="desc" lang="de">Alle Förderprogramme der Förderdatenbank des Bundes (Bund, Länder und EU), ein Datensatz pro Programm mit 51 Feldern.
+<div class="desc" lang="de">Alle Förderprogramme der Förderdatenbank des Bundes (Bund, Länder und EU), ein Datensatz pro Programm mit 52 Feldern.
 
 Die Bundesregierung bietet mit der Förderdatenbank eine Suchmaschine für Förderungen an, veröffentlicht den zugrundeliegenden Datensatz aber nicht als Open Data im normativen Sinne. 
 Grundlage ist der XML-Programmexport der Förderdatenbank.
@@ -48,7 +48,7 @@ Der Export beinhaltet immer nur den heutigen Stand. Dieser Datensatz führt dahe
 
 Diese Historie wird wöchentlich erhoben und als ISO-Kalenderwoche (z. B. 2026-W34) angegeben. Ein Lauf kann immer nur feststellen, dass sich etwas gegenüber dem vorherigen Lauf geändert hat, also ist die Woche zwischen zwei planmäßigen Läufen die tatsächliche Auflösung; ein Zeitstempel würde eine Genauigkeit vortäuschen, die die Quelle nicht hergibt. Grundlage sind ausschließlich die planmäßigen wöchentlichen Läufe: ein zusätzlicher Lauf zwischendurch fließt nicht in die veröffentlichte Historie ein, damit jede Angabe dieselbe Bedeutung hat.
 
-Eine Spalte ist modellbasiert und nicht Teil der Quelle: ``keywords_extracted`` enthält die Stichwörter, die ein finetuned Sprachmodell aus der Rohspalte ``keywords`` herausliest. Upstream sind sie durch Leerzeichen verbunden und in 87,7 % der Fälle nicht trennbar. Jedes Stichwort ist nachweislich ein zusammenhängender Abschnitt des Originalstrings, geprüft bei jeder Veröffentlichung; die Grenzziehung selbst ist eine Modellentscheidung (F1 0,967 auf einer Handstichprobe). ``keywords`` bleibt unverändert daneben stehen. Das Tabellenschema kennzeichnet jede Spalte mit ``fdb:origin`` als ``upstream``, ``derived`` oder ``inferred``.</div><div class="desc" lang="en">All funding programmes in the German federal funding database (Förderdatenbank; federal, state and EU programmes), one record per programme with 51 fields.
+Eine Spalte ist modellbasiert und nicht Teil der Quelle: ``keywords_extracted`` enthält die Stichwörter, die ein finetuned Sprachmodell aus der Rohspalte ``keywords`` herausliest. Upstream sind sie durch Leerzeichen verbunden und in 87,7 % der Fälle nicht trennbar. Jedes Stichwort ist nachweislich ein zusammenhängender Abschnitt des Originalstrings, geprüft bei jeder Veröffentlichung; die Grenzziehung selbst ist eine Modellentscheidung (F1 0,967 auf einer Handstichprobe). ``keywords`` bleibt unverändert daneben stehen. Das Tabellenschema kennzeichnet jede Spalte mit ``fdb:origin`` als ``upstream``, ``derived`` oder ``inferred``.</div><div class="desc" lang="en">All funding programmes in the German federal funding database (Förderdatenbank; federal, state and EU programmes), one record per programme with 52 fields.
 
 The federal government provides the Förderdatenbank as a search engine for funding programmes, but does not publish the underlying dataset as Open Data in the normative sense.
 
@@ -62,7 +62,7 @@ One column is model-produced and not part of the source: ``keywords_extracted`` 
 <h2>Distributionen</h2>
 <table><thead><tr><th>Titel</th><th>Format</th><th>Größe</th><th>Download</th></tr></thead><tbody><tr><td lang="de">Förderprogramme als CSV-Datei</td><td></td><td></td><td><a href=https://fdb.cdl.correlaid.org/data/programme.csv>https://fdb.cdl.correlaid.org/data/programme.csv</a></td></tr></tbody></table>
 <h2>Metadaten</h2>
-<dl><dt>Zuletzt geändert</dt><dd>2026-08-22T00:00:00+00:00</dd><dt>Lizenz</dt><dd><code>http://dcat-ap.de/def/licenses/cc-by-nd/4.0</code></dd><dt>Konform zu</dt><dd><a href=https://fdb.cdl.correlaid.org/table-schema.json>https://fdb.cdl.correlaid.org/table-schema.json</a></dd><dt>Landingpage</dt><dd><a href=https://github.com/CorrelAid/fdb_scraper>https://github.com/CorrelAid/fdb_scraper</a></dd><dt>Themen</dt><dd><code>ECON</code>, <code>GOVE</code></dd><dt>Schlagwörter</dt><dd><code lang="de">Förderung</code>, <code lang="de">Förderprogramme</code>, <code lang="de">Förderdatenbank</code>, <code lang="de">Fördermittel</code></dd></dl>
+<dl><dt>Zuletzt geändert</dt><dd>2026-08-23T00:00:00+00:00</dd><dt>Lizenz</dt><dd><code>http://dcat-ap.de/def/licenses/cc-by-nd/4.0</code></dd><dt>Konform zu</dt><dd><a href=https://fdb.cdl.correlaid.org/table-schema.json>https://fdb.cdl.correlaid.org/table-schema.json</a></dd><dt>Landingpage</dt><dd><a href=https://github.com/CorrelAid/fdb_scraper>https://github.com/CorrelAid/fdb_scraper</a></dd><dt>Themen</dt><dd><code>ECON</code>, <code>GOVE</code></dd><dt>Schlagwörter</dt><dd><code lang="de">Förderung</code>, <code lang="de">Förderprogramme</code>, <code lang="de">Förderdatenbank</code>, <code lang="de">Fördermittel</code></dd></dl>
 <hr>
 <p><small>
 Dieser Datensatz als RDF: <a href="https://fdb.cdl.correlaid.org/id/dataset/foerderdatenbank-programme.ttl">Turtle</a> &middot;

@@ -45,40 +45,60 @@ thing the values cannot tell you themselves.
 
 ### History columns are ISO weeks
 
-The export ships only its current state, so this dataset adds five columns of its
-own: `on_website_from`, `last_updated`, `previous_update_dates`, `on_website_to` and
-`absent`.
+The export ships only its current state, so this dataset adds six columns of its
+own: `first_scraped_at`, `on_website_from`, `last_updated`, `previous_update_dates`,
+`on_website_to` and `absent`.
 
-The four dates are **ISO weeks** (`2026-W34`), not timestamps. They are observed by
-comparing one scheduled load with the one before it, so the week between two loads is
-the resolution we actually have — a timestamp would claim a precision the source
-never states. The week named is the interval a change fell in, not the load that
-spotted it: a Monday load reports what changed during the week before it.
+The dates are **ISO weeks** (`2026-W34`), not timestamps. A load can only report that
+something differs from the load before it, so the week between two loads is the
+resolution we actually have — a timestamp would claim a precision the source never
+states.
+
+They split into what we *observed* and what we *infer* from it:
+
+| column | means | null when |
+| --- | --- | --- |
+| `first_scraped_at` | the week of the load that first saw it | never |
+| `on_website_from` | the week it appeared | it was already there at the first load |
+| `last_updated` | the week its content last changed | it has never changed |
+| `previous_update_dates` | one week per observed change | (empty list) |
+| `on_website_to` | the last week it was still present | it is still present |
+
+`first_scraped_at` names the week we looked. Every other date names the week the
+event fell in, which is the week *before* the load that noticed — a Monday load
+reports what changed during the week before it. (`on_website_to` needs no shift of
+its own: the last load that still saw a programme is already the one before the load
+that found it gone.)
 
 ```
-on_website_from        2026-W32
+first_scraped_at       2026-W33
+on_website_from        2026-W32     appeared during W32, seen at the W33 load
 last_updated           2026-W34
 previous_update_dates  ["2026-W33","2026-W34"]
-on_website_to          null
+on_website_to          null         still on the site
 absent                 false
 ```
 
-Two consequences worth knowing before using them:
+Three consequences worth knowing before using them:
 
-- `len(previous_update_dates)` is the number of *weeks* in which a change was seen,
-  not the number of changes. One week is a single comparison, so two changes inside
-  it are indistinguishable from one.
-- `on_website_from == 2026-W32` means "present at the first load", not "appeared that
-  week" — that load was a backfill of everything then on the site, and nothing before
-  it is visible.
+- **`on_website_from` is null for everything the first load found.** Those programmes
+  were already on the site when observation began, so their arrival week is not
+  knowable and any value would be invented. They are the rows whose
+  `first_scraped_at` equals `min(first_scraped_at)` — currently most of the dataset,
+  shrinking every week as new programmes arrive with a real arrival week.
+- **`min(first_scraped_at)` is the week this dataset started**, which is what
+  `min(on_website_from)` used to answer.
+- **`len(previous_update_dates)` counts weeks, not changes.** One week is a single
+  comparison between two loads, so two changes inside it are indistinguishable from
+  one.
 
 Only the scheduled weekly loads are used, so an extra manual scrape never changes
 what is published. See [Scheduling](#scheduling).
 
-> **Changed in [3b861b4](../../commit/3b861b4).** These four columns previously
-> shipped microsecond timestamps (`2026-08-17T03:00:21.750769+0000`), and `absent`
-> was called `deleted` with no `on_website_to`. Code that parses them as dates needs
-> updating.
+> **Changed in [3b861b4](../../commit/3b861b4).** These columns previously shipped
+> microsecond timestamps (`2026-08-17T03:00:21.750769+0000`), and `absent` was called
+> `deleted` with no `on_website_to`. `first_scraped_at` is new, and `on_website_from`
+> became nullable. Code that parses them as dates needs updating.
 
 ## Pipeline
 

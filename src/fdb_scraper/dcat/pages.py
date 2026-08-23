@@ -19,7 +19,7 @@ from __future__ import annotations
 import html
 
 from rdflib import Graph, Literal, URIRef
-from rdflib.namespace import RDF, RDFS
+from rdflib.namespace import RDF, RDFS, SKOS
 
 from fdb_scraper.config import DATASET, VOCAB
 from fdb_scraper.dcat.profile import DCAT, DCATAPDE, DCT, FDB, FOAF, PROV
@@ -198,12 +198,62 @@ def render_dataset_html(graph: Graph) -> str:
     )
 
 
+def _render_concept_schemes(graph: Graph) -> str:
+    """One table per closed vocabulary: the codes, their labels, what they map to.
+
+    The codes are minted terms like any other, so they get anchors too -- a
+    concept URI is this page plus its fragment.
+    """
+    blocks = []
+    schemes = sorted(graph.subjects(RDF.type, SKOS.ConceptScheme), key=str)
+    for scheme in schemes:
+        frag = str(scheme).rsplit("#", 1)[-1]
+        title = _lit(graph, scheme, DCT.title) or frag
+        concepts = sorted(graph.subjects(SKOS.inScheme, scheme), key=str)
+        rows = []
+        for concept in concepts:
+            c_frag = str(concept).rsplit("#", 1)[-1]
+            code = _lit(graph, concept, SKOS.notation) or c_frag
+            label = _lit(graph, concept, SKOS.prefLabel) or ""
+            # Whichever mapping the alignment claimed, and the prose form for a
+            # codelist that publishes no URI per code.
+            maps = [
+                f'<a href="{target}"><code>{target}</code></a>'
+                for prop in (SKOS.exactMatch, SKOS.narrowMatch, SKOS.broadMatch)
+                for target in graph.objects(concept, prop)
+            ] + [
+                str(note)
+                for note in graph.objects(concept, RDFS.comment)
+                if "publishes no URI" in str(note)
+            ]
+            rows.append(
+                f'<tr id="{c_frag}"><td><code>{code}</code></td>'
+                f'<td lang="de">{label}</td>'
+                f"<td>{'<br>'.join(maps)}</td></tr>"
+            )
+        blocks.append(
+            f'<h3 id="{frag}"><code>{frag}</code></h3>\n'
+            f'<div class="desc" lang="de">{title}</div>\n'
+            "<table><thead><tr><th>Code</th><th>Bezeichnung</th>"
+            "<th>Entspricht</th></tr></thead>"
+            f"<tbody>{''.join(rows)}</tbody></table>\n"
+        )
+    if not blocks:
+        return ""
+    return "<h2>Wertelisten</h2>\n" + "".join(blocks)
+
+
 def render_vocabulary_html(graph: Graph) -> str:
     """HTML page for the vocabulary URI: one row per minted term.
 
     Rendered as a table so a human can scan what is in the namespace. The
     ``fdb:`` prefix is implicit (this document defines it) and is dropped from
     the displayed identifiers.
+
+    Every row carries the term's fragment as its ``id``. The namespace is a hash
+    namespace, so a term URI is this page plus a fragment -- without the anchors
+    the identifiers we mint and publish would all land at the top of the page,
+    which is the same as landing nowhere.
     """
     ontology = URIRef(VOCAB.rstrip("#"))
     title = _lit(graph, ontology, DCT.title) or VOCAB
@@ -214,21 +264,27 @@ def render_vocabulary_html(graph: Graph) -> str:
     # rather than assumed, so the cell says what the graph says.
     rows = []
     for term, _, _ in graph.triples((None, RDF.type, RDF.Property)):
-        label = _lit(graph, term, RDFS.label) or term.rsplit("#", 1)[-1]
+        frag = term.rsplit("#", 1)[-1]
+        label = _lit(graph, term, RDFS.label) or frag
         c_lang, comment = next(iter(_lit_langs(graph, term, RDFS.comment, prefer="en")), ("", ""))
         origin = _lit(graph, term, FDB.origin) or ""
         rows.append(
-            f"<tr><td><code>{label}</code></td><td{_lang_attr(c_lang)}>{comment}</td>"
+            f'<tr id="{frag}"><td><code>{label}</code></td>'
+            f"<td{_lang_attr(c_lang)}>{comment}</td>"
             f"<td><code>{origin}</code></td></tr>"
         )
 
     class_rows = []
     for cls, _, _ in graph.triples((None, RDF.type, RDFS.Class)):
-        label = _lit(graph, cls, RDFS.label) or cls.rsplit("#", 1)[-1]
+        frag = cls.rsplit("#", 1)[-1]
+        label = _lit(graph, cls, RDFS.label) or frag
         c_lang, comment = next(iter(_lit_langs(graph, cls, RDFS.comment, prefer="en")), ("", ""))
         class_rows.append(
-            f"<tr><td><code>{label}</code></td><td{_lang_attr(c_lang)}>{comment}</td></tr>"
+            f'<tr id="{frag}"><td><code>{label}</code></td>'
+            f"<td{_lang_attr(c_lang)}>{comment}</td></tr>"
         )
+
+    scheme_blocks = _render_concept_schemes(graph)
 
     return (
         _HTML_HEAD.format(lang="de", title=title, href_root=VOCAB.rstrip("#"), href_ext="", href_ext_jsonld=".jsonld")
@@ -238,6 +294,7 @@ def render_vocabulary_html(graph: Graph) -> str:
            f"<tbody>{''.join(class_rows)}</tbody></table>\n" if class_rows else "")
         + ("<h2>Eigenschaften</h2>\n<table><thead><tr><th>Term</th><th>Kommentar</th><th>Herkunft</th></tr></thead>"
            f"<tbody>{''.join(rows)}</tbody></table>\n" if rows else "")
+        + scheme_blocks
         + _HTML_FOOT.format(
             subject="Dieses Vokabular", href_root=VOCAB.rstrip("#"), ext_turtle=".ttl", ext_jsonld=".jsonld"
         )

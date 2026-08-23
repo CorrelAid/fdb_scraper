@@ -19,6 +19,7 @@ the document stands alone -- see
 from __future__ import annotations
 
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -173,6 +174,27 @@ def test_every_code_of_a_plain_vocabulary_resolves_to_its_label() -> None:
             assert (concept, SKOS.notation, Literal(code)) in g, (
                 f"{code} has no notation to join the CSV on"
             )
+
+
+def test_every_minted_term_has_an_anchor_on_the_html_page() -> None:
+    """A hash namespace whose page has no anchors resolves every term to its top.
+
+    ``fdb:`` is a hash namespace, so a term URI is the vocabulary page plus a
+    fragment. The page carried no ``id`` attributes at all, which made every
+    minted identifier -- 106 of them -- land at the top of the document.
+    """
+    page = (VOCABULARY.parent / "fdb.html").read_text(encoding="utf-8")
+    anchors = set(re.findall(r'id="([^"]+)"', page))
+    graph = Graph().parse(VOCABULARY, format="turtle")
+
+    minted = {
+        str(s).rsplit("#", 1)[-1]
+        for kind in (RDF.Property, RDFS.Class, SKOS.ConceptScheme, SKOS.Concept)
+        for s in graph.subjects(RDF.type, kind)
+        if "#" in str(s)
+    }
+    assert minted, "no minted terms -- was the vocabulary regenerated?"
+    assert minted - anchors == set(), f"no anchor for: {sorted(minted - anchors)}"
 
 
 def test_every_codelist_alignment_is_published() -> None:

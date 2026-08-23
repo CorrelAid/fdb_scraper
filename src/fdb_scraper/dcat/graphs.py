@@ -16,6 +16,7 @@ from datetime import datetime
 from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import RDF, RDFS, SKOS, XSD
 
+from fdb_scraper.codelists import matches
 from fdb_scraper.generated import CLOSED_VOCABS
 from fdb_scraper.semantics import SCHEME_VOCAB, SCHEMES
 from fdb_scraper.dcat.columns import (
@@ -299,3 +300,48 @@ def _add_concept_schemes(g: Graph, ontology: URIRef) -> None:
         # topConceptOf on every concept: the scheme is flat, so they are all top.
         for code in CLOSED_VOCABS[source]:
             g.add((scheme_ref, SKOS.hasTopConcept, URIRef(concept_uri(scheme, code))))
+
+    _add_codelist_matches(g)
+
+
+def _add_codelist_matches(g: Graph) -> None:
+    """Where a category corresponds to a code in a published codelist, say so.
+
+    :mod:`fdb_scraper.codelists` aligns five of the vocabularies to XOEV and NUTS
+    by label, and holds the relation it is willing to claim: ``exactMatch`` for
+    the same concept, ``narrowMatch`` where theirs is narrower than ours. Those
+    are skos properties already, so publishing them is a matter of emitting what
+    the alignment table says rather than deciding anything here.
+
+    A category with no counterpart contributes nothing. The alignment deliberately
+    leaves those unmapped rather than folding them into a near miss, and the
+    absence of a mapping is not a statement worth a triple -- ``unmatched()``
+    carries the reasons for anyone who wants them.
+
+    Only NUTS gives its codes dereferenceable URIs, so only those become a skos
+    mapping property pointing at the code itself. The XOEV lists are identified by
+    a URN and publish no per-code URI; minting one on their behalf would be
+    inventing an addressing scheme for someone else's vocabulary, so the mapping
+    is stated as a comment naming the list, its version and the code. Less
+    machine-readable, and the only form that is true.
+
+    The values stay the export's own codes; this only says what they line up with.
+    """
+    for row in matches().iter_rows(named=True):
+        if row["relation"] is None:
+            continue  # no counterpart; unmatched() says why
+        concept = URIRef(concept_uri(SCHEMES[row["column"]], row["code"]))
+        if row["codelist_uri"] is not None:
+            g.add((concept, URIRef(expand(row["relation"])), URIRef(row["codelist_uri"])))
+            continue
+        g.add((
+            concept,
+            RDFS.comment,
+            Literal(
+                f'{row["relation"]} {row["codelist"]} '
+                f'version {row["codelist_version"]} code {row["codelist_code"]} '
+                f'("{row["codelist_label"]}") -- that codelist publishes no URI '
+                "per code",
+                lang="en",
+            ),
+        ))

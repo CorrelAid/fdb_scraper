@@ -309,6 +309,7 @@ fdb:statusNote
 
 fdb:foerderart-beteiligung
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:finanzierungsform version 1 code 004 (\"Beteiligung\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderart ;
     skos:notation "beteiligung" ;
     skos:prefLabel "Beteiligung"@de ;
@@ -316,6 +317,7 @@ fdb:foerderart-beteiligung
 
 fdb:foerderart-buergschaft
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:finanzierungsform version 1 code 005 (\"Bürgschaften\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderart ;
     skos:notation "buergschaft" ;
     skos:prefLabel "Bürgschaft"@de ;
@@ -323,6 +325,7 @@ fdb:foerderart-buergschaft
 
 fdb:foerderart-darlehen
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:finanzierungsform version 1 code 002 (\"Kredit/Darlehen\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderart ;
     skos:notation "darlehen" ;
     skos:prefLabel "Darlehen"@de ;
@@ -344,6 +347,7 @@ fdb:foerderart-sonstige
 
 fdb:foerderart-zuschuss
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:finanzierungsform version 1 code 001 (\"Zuschuss\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderart ;
     skos:notation "zuschuss" ;
     skos:prefLabel "Zuschuss"@de ;
@@ -365,6 +369,7 @@ fdb:foerderberechtigte-existenzgruenderin
 
 fdb:foerderberechtigte-forschungseinrichtung
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 006 (\"Forschungseinrichtungen\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderberechtigte ;
     skos:notation "forschungseinrichtung" ;
     skos:prefLabel "Forschungseinrichtung"@de ;
@@ -379,6 +384,7 @@ fdb:foerderberechtigte-hochschule
 
 fdb:foerderberechtigte-kommune
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 009 (\"Kommunen\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderberechtigte ;
     skos:notation "kommune" ;
     skos:prefLabel "Kommune"@de ;
@@ -386,6 +392,7 @@ fdb:foerderberechtigte-kommune
 
 fdb:foerderberechtigte-oeffentliche_einrichtung
     a skos:Concept ;
+    rdfs:comment "skos:narrowMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 008 (\"Behörden\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderberechtigte ;
     skos:notation "oeffentliche_einrichtung" ;
     skos:prefLabel "Öffentliche Einrichtung"@de ;
@@ -393,6 +400,7 @@ fdb:foerderberechtigte-oeffentliche_einrichtung
 
 fdb:foerderberechtigte-privatperson
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 001 (\"Privatpersonen\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderberechtigte ;
     skos:notation "privatperson" ;
     skos:prefLabel "Privatperson"@de ;
@@ -400,6 +408,10 @@ fdb:foerderberechtigte-privatperson
 
 fdb:foerderberechtigte-unternehmen
     a skos:Concept ;
+    rdfs:comment
+        "skos:narrowMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 002 (\"Kleine und mittlere Unternehmen\") -- that codelist publishes no URI per code"@en ,
+        "skos:narrowMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 003 (\"Einzelunternehmen\") -- that codelist publishes no URI per code"@en ,
+        "skos:narrowMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 005 (\"Großunternehmen\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderberechtigte ;
     skos:notation "unternehmen" ;
     skos:prefLabel "Unternehmen"@de ;
@@ -407,6 +419,7 @@ fdb:foerderberechtigte-unternehmen
 
 fdb:foerderberechtigte-verband_vereinigung
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 011 (\"Verbände\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderberechtigte ;
     skos:notation "verband_vereinigung" ;
     skos:prefLabel "Verband/Vereinigung"@de ;
@@ -414,6 +427,7 @@ fdb:foerderberechtigte-verband_vereinigung
 
 fdb:foerderbereich-arbeit
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 001 (\"Arbeit\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderbereich ;
     skos:notation "arbeit" ;
     skos:prefLabel "Arbeit"@de ;
@@ -421,6 +435,7 @@ fdb:foerderbereich-arbeit
 
 fdb:foerderbereich-aus_weiterbildung
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 002 (\"Aus und Weiterbildung\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderbereich ;
     skos:notation "aus_weiterbildung" ;
     skos:prefLabel "Aus- & Weiterbildung"@de ;
@@ -428,6 +443,7 @@ fdb:foerderbereich-aus_weiterbildung
 
 fdb:foerderbereich-aussenwirtschaft
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 003 (\"Außenwirtschaft\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderbereich ;
     skos:notation "aussenwirtschaft" ;
     skos:prefLabel "Außenwirtschaft"@de ;
@@ -435,6 +451,7 @@ fdb:foerderbereich-aussenwirtschaft
 
 fdb:foerderbereich-beratung
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 004 (\"Beratung\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderbereich ;
     skos:notation "beratung" ;
     skos:prefLabel "Beratung"@de ;
@@ -442,6 +459,7 @@ fdb:foerderbereich-beratung
 
 fdb:foerderbereich-corona
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 005 (\"Corona-Hilfe\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderbereich ;
     skos:notation "corona" ;
     skos:prefLabel "Corona-Hilfe"@de ;
@@ -449,6 +467,7 @@ fdb:foerderbereich-corona
 
 fdb:foerderbereich-digitalisierung
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 006 (\"Digitalisierung\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderbereich ;
     skos:notation "digitalisierung" ;
     skos:prefLabel "Digitalisierung"@de ;
@@ -456,6 +475,7 @@ fdb:foerderbereich-digitalisierung
 
 fdb:foerderbereich-energieeffizienz_erneuerbare_energien
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 007 (\"Energieeffizienz und Erneuerbare Energien\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderbereich ;
     skos:notation "energieeffizienz_erneuerbare_energien" ;
     skos:prefLabel "Energieeffizienz & Erneuerbare Energien"@de ;
@@ -463,6 +483,7 @@ fdb:foerderbereich-energieeffizienz_erneuerbare_energien
 
 fdb:foerderbereich-existenzgruendung_festigung
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 008 (\"Existenzgründung und -festigung\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderbereich ;
     skos:notation "existenzgruendung_festigung" ;
     skos:prefLabel "Existenzgründung & -festigung"@de ;
@@ -470,6 +491,7 @@ fdb:foerderbereich-existenzgruendung_festigung
 
 fdb:foerderbereich-forschung_innovation_themenoffen
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 009 (\"Forschung und Innovation (themenoffen)\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderbereich ;
     skos:notation "forschung_innovation_themenoffen" ;
     skos:prefLabel "Forschung & Innovation (themenoffen)"@de ;
@@ -477,6 +499,7 @@ fdb:foerderbereich-forschung_innovation_themenoffen
 
 fdb:foerderbereich-forschung_innovation_themenspezifisch
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 010 (\"Forschung und Innovation (themenspezifisch)\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderbereich ;
     skos:notation "forschung_innovation_themenspezifisch" ;
     skos:prefLabel "Forschung & Innovation (themenspezifisch)"@de ;
@@ -491,6 +514,7 @@ fdb:foerderbereich-frauenfoerderung
 
 fdb:foerderbereich-gesundheit_soziales
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 011 (\"Gesundheit und Soziales\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderbereich ;
     skos:notation "gesundheit_soziales" ;
     skos:prefLabel "Gesundheit & Soziales"@de ;
@@ -498,6 +522,7 @@ fdb:foerderbereich-gesundheit_soziales
 
 fdb:foerderbereich-infrastruktur
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 012 (\"Infrastruktur\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderbereich ;
     skos:notation "infrastruktur" ;
     skos:prefLabel "Infrastruktur"@de ;
@@ -505,6 +530,7 @@ fdb:foerderbereich-infrastruktur
 
 fdb:foerderbereich-kultur_medien_sport
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 013 (\"Kultur, Medien und Sport\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderbereich ;
     skos:notation "kultur_medien_sport" ;
     skos:prefLabel "Kultur, Medien & Sport"@de ;
@@ -512,6 +538,7 @@ fdb:foerderbereich-kultur_medien_sport
 
 fdb:foerderbereich-landwirtschaft_laendliche_entwicklung
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 014 (\"Landwirtschaft und Ländliche Entwicklung\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderbereich ;
     skos:notation "landwirtschaft_laendliche_entwicklung" ;
     skos:prefLabel "Landwirtschaft & Ländliche Entwicklung"@de ;
@@ -519,6 +546,7 @@ fdb:foerderbereich-landwirtschaft_laendliche_entwicklung
 
 fdb:foerderbereich-messen_ausstellungen
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 015 (\"Messen und Ausstellungen\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderbereich ;
     skos:notation "messen_ausstellungen" ;
     skos:prefLabel "Messen & Ausstellungen"@de ;
@@ -533,6 +561,7 @@ fdb:foerderbereich-mobilitaet
 
 fdb:foerderbereich-regionalfoerderung
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 016 (\"Regionalförderung\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderbereich ;
     skos:notation "regionalfoerderung" ;
     skos:prefLabel "Regionalförderung"@de ;
@@ -540,6 +569,7 @@ fdb:foerderbereich-regionalfoerderung
 
 fdb:foerderbereich-smart_cities_regionen
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 017 (\"Smart Cities und Regionen\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderbereich ;
     skos:notation "smart_cities_regionen" ;
     skos:prefLabel "Smart Cities & Regionen"@de ;
@@ -547,6 +577,7 @@ fdb:foerderbereich-smart_cities_regionen
 
 fdb:foerderbereich-staedtebau_stadterneuerung
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 018 (\"Städtebau und Stadterneuerung\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderbereich ;
     skos:notation "staedtebau_stadterneuerung" ;
     skos:prefLabel "Städtebau & Stadterneuerung"@de ;
@@ -554,6 +585,7 @@ fdb:foerderbereich-staedtebau_stadterneuerung
 
 fdb:foerderbereich-umwelt_naturschutz
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 019 (\"Umwelt- und Naturschutz\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderbereich ;
     skos:notation "umwelt_naturschutz" ;
     skos:prefLabel "Umwelt- & Naturschutz"@de ;
@@ -561,6 +593,7 @@ fdb:foerderbereich-umwelt_naturschutz
 
 fdb:foerderbereich-unternehmensfinanzierung
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 020 (\"Unternehmensfinanzierung\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderbereich ;
     skos:notation "unternehmensfinanzierung" ;
     skos:prefLabel "Unternehmensfinanzierung"@de ;
@@ -568,6 +601,7 @@ fdb:foerderbereich-unternehmensfinanzierung
 
 fdb:foerderbereich-wohnungsbau_modernisierung
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 021 (\"Wohnungsbau und Modernisierung\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerderbereich ;
     skos:notation "wohnungsbau_modernisierung" ;
     skos:prefLabel "Wohnungsbau & -modernisierung"@de ;
@@ -575,6 +609,7 @@ fdb:foerderbereich-wohnungsbau_modernisierung
 
 fdb:foerdergeber-bund
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:geldgebende-institution version 1 code 002 (\"Bund\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerdergeber ;
     skos:notation "bund" ;
     skos:prefLabel "Bund"@de ;
@@ -582,6 +617,7 @@ fdb:foerdergeber-bund
 
 fdb:foerdergeber-eu
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:geldgebende-institution version 1 code 001 (\"EU\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerdergeber ;
     skos:notation "eu" ;
     skos:prefLabel "EU"@de ;
@@ -589,6 +625,7 @@ fdb:foerdergeber-eu
 
 fdb:foerdergeber-land
     a skos:Concept ;
+    rdfs:comment "skos:exactMatch urn:xoev-de:stmd:codeliste:geldgebende-institution version 1 code 003 (\"Land\") -- that codelist publishes no URI per code"@en ;
     skos:inScheme fdb:foerdergeber ;
     skos:notation "land" ;
     skos:prefLabel "Land"@de ;
@@ -596,6 +633,7 @@ fdb:foerdergeber-land
 
 fdb:foerdergebiet-_bundesweit
     a skos:Concept ;
+    skos:exactMatch <http://data.europa.eu/nuts/code/DE> ;
     skos:inScheme fdb:foerdergebiet ;
     skos:notation "_bundesweit" ;
     skos:prefLabel "bundesweit"@de ;
@@ -603,6 +641,7 @@ fdb:foerdergebiet-_bundesweit
 
 fdb:foerdergebiet-baden_wuerttemberg
     a skos:Concept ;
+    skos:exactMatch <http://data.europa.eu/nuts/code/DE1> ;
     skos:inScheme fdb:foerdergebiet ;
     skos:notation "baden_wuerttemberg" ;
     skos:prefLabel "Baden-Württemberg"@de ;
@@ -610,6 +649,7 @@ fdb:foerdergebiet-baden_wuerttemberg
 
 fdb:foerdergebiet-bayern
     a skos:Concept ;
+    skos:exactMatch <http://data.europa.eu/nuts/code/DE2> ;
     skos:inScheme fdb:foerdergebiet ;
     skos:notation "bayern" ;
     skos:prefLabel "Bayern"@de ;
@@ -617,6 +657,7 @@ fdb:foerdergebiet-bayern
 
 fdb:foerdergebiet-berlin
     a skos:Concept ;
+    skos:exactMatch <http://data.europa.eu/nuts/code/DE3> ;
     skos:inScheme fdb:foerdergebiet ;
     skos:notation "berlin" ;
     skos:prefLabel "Berlin"@de ;
@@ -624,6 +665,7 @@ fdb:foerdergebiet-berlin
 
 fdb:foerdergebiet-brandenburg
     a skos:Concept ;
+    skos:exactMatch <http://data.europa.eu/nuts/code/DE4> ;
     skos:inScheme fdb:foerdergebiet ;
     skos:notation "brandenburg" ;
     skos:prefLabel "Brandenburg"@de ;
@@ -631,6 +673,7 @@ fdb:foerdergebiet-brandenburg
 
 fdb:foerdergebiet-bremen
     a skos:Concept ;
+    skos:exactMatch <http://data.europa.eu/nuts/code/DE5> ;
     skos:inScheme fdb:foerdergebiet ;
     skos:notation "bremen" ;
     skos:prefLabel "Bremen"@de ;
@@ -638,6 +681,7 @@ fdb:foerdergebiet-bremen
 
 fdb:foerdergebiet-de_ni
     a skos:Concept ;
+    skos:exactMatch <http://data.europa.eu/nuts/code/DE9> ;
     skos:inScheme fdb:foerdergebiet ;
     skos:notation "de_ni" ;
     skos:prefLabel "Niedersachsen"@de ;
@@ -645,6 +689,7 @@ fdb:foerdergebiet-de_ni
 
 fdb:foerdergebiet-de_st
     a skos:Concept ;
+    skos:exactMatch <http://data.europa.eu/nuts/code/DEE> ;
     skos:inScheme fdb:foerdergebiet ;
     skos:notation "de_st" ;
     skos:prefLabel "Sachsen-Anhalt"@de ;
@@ -652,6 +697,7 @@ fdb:foerdergebiet-de_st
 
 fdb:foerdergebiet-hamburg
     a skos:Concept ;
+    skos:exactMatch <http://data.europa.eu/nuts/code/DE6> ;
     skos:inScheme fdb:foerdergebiet ;
     skos:notation "hamburg" ;
     skos:prefLabel "Hamburg"@de ;
@@ -659,6 +705,7 @@ fdb:foerdergebiet-hamburg
 
 fdb:foerdergebiet-hessen
     a skos:Concept ;
+    skos:exactMatch <http://data.europa.eu/nuts/code/DE7> ;
     skos:inScheme fdb:foerdergebiet ;
     skos:notation "hessen" ;
     skos:prefLabel "Hessen"@de ;
@@ -666,6 +713,7 @@ fdb:foerdergebiet-hessen
 
 fdb:foerdergebiet-mecklenburg_vorpommern
     a skos:Concept ;
+    skos:exactMatch <http://data.europa.eu/nuts/code/DE8> ;
     skos:inScheme fdb:foerdergebiet ;
     skos:notation "mecklenburg_vorpommern" ;
     skos:prefLabel "Mecklenburg-Vorpommern"@de ;
@@ -673,6 +721,7 @@ fdb:foerdergebiet-mecklenburg_vorpommern
 
 fdb:foerdergebiet-nordrhein_westfalen
     a skos:Concept ;
+    skos:exactMatch <http://data.europa.eu/nuts/code/DEA> ;
     skos:inScheme fdb:foerdergebiet ;
     skos:notation "nordrhein_westfalen" ;
     skos:prefLabel "Nordrhein-Westfalen"@de ;
@@ -680,6 +729,7 @@ fdb:foerdergebiet-nordrhein_westfalen
 
 fdb:foerdergebiet-rheinland_pfalz
     a skos:Concept ;
+    skos:exactMatch <http://data.europa.eu/nuts/code/DEB> ;
     skos:inScheme fdb:foerdergebiet ;
     skos:notation "rheinland_pfalz" ;
     skos:prefLabel "Rheinland-Pfalz"@de ;
@@ -687,6 +737,7 @@ fdb:foerdergebiet-rheinland_pfalz
 
 fdb:foerdergebiet-saarland
     a skos:Concept ;
+    skos:exactMatch <http://data.europa.eu/nuts/code/DEC> ;
     skos:inScheme fdb:foerdergebiet ;
     skos:notation "saarland" ;
     skos:prefLabel "Saarland"@de ;
@@ -694,6 +745,7 @@ fdb:foerdergebiet-saarland
 
 fdb:foerdergebiet-sachsen
     a skos:Concept ;
+    skos:exactMatch <http://data.europa.eu/nuts/code/DED> ;
     skos:inScheme fdb:foerdergebiet ;
     skos:notation "sachsen" ;
     skos:prefLabel "Sachsen"@de ;
@@ -701,6 +753,7 @@ fdb:foerdergebiet-sachsen
 
 fdb:foerdergebiet-schlesig_holstein
     a skos:Concept ;
+    skos:exactMatch <http://data.europa.eu/nuts/code/DEF> ;
     skos:inScheme fdb:foerdergebiet ;
     skos:notation "schlesig_holstein" ;
     skos:prefLabel "Schleswig-Holstein"@de ;
@@ -715,6 +768,7 @@ fdb:foerdergebiet-sonstige
 
 fdb:foerdergebiet-thueringen
     a skos:Concept ;
+    skos:exactMatch <http://data.europa.eu/nuts/code/DEG> ;
     skos:inScheme fdb:foerdergebiet ;
     skos:notation "thueringen" ;
     skos:prefLabel "Thüringen"@de ;

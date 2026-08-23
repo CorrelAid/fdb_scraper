@@ -472,6 +472,12 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:finanzierungsform version 1 code 004 (\"Beteiligung\") -- that codelist publishes no URI per code"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart"
@@ -494,6 +500,12 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:finanzierungsform version 1 code 005 (\"Bürgschaften\") -- that codelist publishes no URI per code"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart"
@@ -515,6 +527,12 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart-darlehen",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:finanzierungsform version 1 code 002 (\"Kredit/Darlehen\") -- that codelist publishes no URI per code"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -581,6 +599,12 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart-zuschuss",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:finanzierungsform version 1 code 001 (\"Zuschuss\") -- that codelist publishes no URI per code"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -694,6 +718,12 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 006 (\"Forschungseinrichtungen\") -- that codelist publishes no URI per code"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte"
@@ -738,6 +768,12 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 009 (\"Kommunen\") -- that codelist publishes no URI per code"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte"
@@ -759,6 +795,12 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte-oeffentliche_einrichtung",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:narrowMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 008 (\"Behörden\") -- that codelist publishes no URI per code"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -782,6 +824,12 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 001 (\"Privatpersonen\") -- that codelist publishes no URI per code"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte"
@@ -804,6 +852,20 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:narrowMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 002 (\"Kleine und mittlere Unternehmen\") -- that codelist publishes no URI per code"
+      },
+      {
+        "@language": "en",
+        "@value": "skos:narrowMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 003 (\"Einzelunternehmen\") -- that codelist publishes no URI per code"
+      },
+      {
+        "@language": "en",
+        "@value": "skos:narrowMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 005 (\"Großunternehmen\") -- that codelist publishes no URI per code"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte"
@@ -825,6 +887,12 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte-verband_vereinigung",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 011 (\"Verbände\") -- that codelist publishes no URI per code"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -936,6 +1004,12 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 001 (\"Arbeit\") -- that codelist publishes no URI per code"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
@@ -957,6 +1031,12 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-aus_weiterbildung",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 002 (\"Aus und Weiterbildung\") -- that codelist publishes no URI per code"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -980,6 +1060,12 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 003 (\"Außenwirtschaft\") -- that codelist publishes no URI per code"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
@@ -1001,6 +1087,12 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-beratung",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 004 (\"Beratung\") -- that codelist publishes no URI per code"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -1024,6 +1116,12 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 005 (\"Corona-Hilfe\") -- that codelist publishes no URI per code"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
@@ -1045,6 +1143,12 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-digitalisierung",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 006 (\"Digitalisierung\") -- that codelist publishes no URI per code"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -1068,6 +1172,12 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 007 (\"Energieeffizienz und Erneuerbare Energien\") -- that codelist publishes no URI per code"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
@@ -1089,6 +1199,12 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-existenzgruendung_festigung",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 008 (\"Existenzgründung und -festigung\") -- that codelist publishes no URI per code"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -1112,6 +1228,12 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 009 (\"Forschung und Innovation (themenoffen)\") -- that codelist publishes no URI per code"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
@@ -1133,6 +1255,12 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-forschung_innovation_themenspezifisch",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 010 (\"Forschung und Innovation (themenspezifisch)\") -- that codelist publishes no URI per code"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -1178,6 +1306,12 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 011 (\"Gesundheit und Soziales\") -- that codelist publishes no URI per code"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
@@ -1199,6 +1333,12 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-infrastruktur",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 012 (\"Infrastruktur\") -- that codelist publishes no URI per code"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -1222,6 +1362,12 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 013 (\"Kultur, Medien und Sport\") -- that codelist publishes no URI per code"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
@@ -1244,6 +1390,12 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 014 (\"Landwirtschaft und Ländliche Entwicklung\") -- that codelist publishes no URI per code"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
@@ -1265,6 +1417,12 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-messen_ausstellungen",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 015 (\"Messen und Ausstellungen\") -- that codelist publishes no URI per code"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -1310,6 +1468,12 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 016 (\"Regionalförderung\") -- that codelist publishes no URI per code"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
@@ -1331,6 +1495,12 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-smart_cities_regionen",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 017 (\"Smart Cities und Regionen\") -- that codelist publishes no URI per code"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -1354,6 +1524,12 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 018 (\"Städtebau und Stadterneuerung\") -- that codelist publishes no URI per code"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
@@ -1375,6 +1551,12 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-umwelt_naturschutz",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 019 (\"Umwelt- und Naturschutz\") -- that codelist publishes no URI per code"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -1398,6 +1580,12 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 020 (\"Unternehmensfinanzierung\") -- that codelist publishes no URI per code"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
@@ -1419,6 +1607,12 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-wohnungsbau_modernisierung",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 021 (\"Wohnungsbau und Modernisierung\") -- that codelist publishes no URI per code"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -1470,6 +1664,12 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:geldgebende-institution version 1 code 002 (\"Bund\") -- that codelist publishes no URI per code"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergeber"
@@ -1492,6 +1692,12 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:geldgebende-institution version 1 code 001 (\"EU\") -- that codelist publishes no URI per code"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergeber"
@@ -1513,6 +1719,12 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergeber-land",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:geldgebende-institution version 1 code 003 (\"Land\") -- that codelist publishes no URI per code"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -1609,6 +1821,11 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "http://data.europa.eu/nuts/code/DE"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
@@ -1630,6 +1847,11 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-baden_wuerttemberg",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "http://data.europa.eu/nuts/code/DE1"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -1653,6 +1875,11 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "http://data.europa.eu/nuts/code/DE2"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
@@ -1674,6 +1901,11 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-berlin",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "http://data.europa.eu/nuts/code/DE3"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -1697,6 +1929,11 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "http://data.europa.eu/nuts/code/DE4"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
@@ -1718,6 +1955,11 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-bremen",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "http://data.europa.eu/nuts/code/DE5"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -1741,6 +1983,11 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "http://data.europa.eu/nuts/code/DE9"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
@@ -1762,6 +2009,11 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-de_st",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "http://data.europa.eu/nuts/code/DEE"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -1785,6 +2037,11 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "http://data.europa.eu/nuts/code/DE6"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
@@ -1806,6 +2063,11 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-hessen",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "http://data.europa.eu/nuts/code/DE7"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -1829,6 +2091,11 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "http://data.europa.eu/nuts/code/DE8"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
@@ -1850,6 +2117,11 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-nordrhein_westfalen",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "http://data.europa.eu/nuts/code/DEA"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -1873,6 +2145,11 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "http://data.europa.eu/nuts/code/DEB"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
@@ -1894,6 +2171,11 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-saarland",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "http://data.europa.eu/nuts/code/DEC"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -1917,6 +2199,11 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "http://data.europa.eu/nuts/code/DED"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
@@ -1938,6 +2225,11 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-schlesig_holstein",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "http://data.europa.eu/nuts/code/DEF"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
@@ -1982,6 +2274,11 @@
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-thueringen",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "http://data.europa.eu/nuts/code/DEG"
+      }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {

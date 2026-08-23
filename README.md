@@ -25,10 +25,33 @@ published. The table schema names the vocabulary and its size per column.
 Five of those nine also have a loose alignment to a published codelist (XÖV
 `finanzierungsform`, `geldgebende-institution`, `foerderbereich`, `foerdernehmende`,
 and NUTS for `funding_location`), derived by label match in
-[`fdb_scraper.codelists`](src/fdb_scraper/codelists.py). It is not published as part
-of the dataset: the values stay the export's own codes, and the mapping is available
-in-repo via `fdb_scraper.matches()` and `fdb_scraper.unmatched()` for anyone who wants
-the standard code. 
+[`fdb_scraper.codelists`](src/fdb_scraper/codelists.py). The values stay the export's
+own codes; the alignment is published beside them in the vocabulary, as
+`skos:exactMatch` / `skos:narrowMatch` where the target codelist gives its codes a
+URI (NUTS does) and as a comment naming list, version and code where it does not
+(the XÖV lists publish no per-code URI). `fdb_scraper.matches()` and
+`fdb_scraper.unmatched()` give the same table in-repo, the latter with the reason a
+category was left unmapped.
+
+The closed vocabularies themselves are published as SKOS concept schemes in the
+[minted vocabulary](https://fdb.cdl.correlaid.org/def/fdb), so a code in the CSV
+resolves to its German label without cloning this repo:
+
+```python
+from rdflib import Graph, URIRef
+from rdflib.namespace import SKOS
+
+g = Graph().parse("https://fdb.cdl.correlaid.org/def/fdb", format="turtle")
+scheme = URIRef("https://fdb.cdl.correlaid.org/def/fdb#foerderbereich")
+labels = {
+    str(g.value(c, SKOS.notation)): str(g.value(c, SKOS.prefLabel))
+    for c in g.subjects(SKOS.inScheme, scheme)
+}   # {"arbeit": "Arbeit", ...}
+```
+
+The two pivoted columns (`funding_subarea`, `applicant_sector`) are the exception:
+their values are `parent.child` paths drawn from a vocabulary per parent, so the
+column comment states that shape instead of enumerating them. 
 
 See `notebooks/exploration.ipynb` for an example on how to load and use the data.
 

@@ -23,13 +23,15 @@ import subprocess
 import sys
 from pathlib import Path
 
+import polars as pl
 import pytest
 from pyshacl import validate
 from rdflib import Graph, Literal, URIRef
-from rdflib.namespace import DCAT, DCTERMS, RDF, SH, SKOS
+from rdflib.namespace import DCAT, DCTERMS, RDF, RDFS, SH, SKOS
 
 from fdb_scraper.schema import PUBLISHED_FIELDS
 from fdb_scraper.config import PIVOTS, VOCAB
+from fdb_scraper.codelists import matches
 from fdb_scraper.dcat.columns import concept_uri, scheme_uri, vocab_note
 from fdb_scraper.generated import CLOSED_VOCABS
 from fdb_scraper.semantics import ANNOTATIONS, PREDICATES, SCHEME_VOCAB, SCHEMES, expand
@@ -171,6 +173,38 @@ def test_every_code_of_a_plain_vocabulary_resolves_to_its_label() -> None:
             assert (concept, SKOS.notation, Literal(code)) in g, (
                 f"{code} has no notation to join the CSV on"
             )
+
+
+def test_every_codelist_alignment_is_published() -> None:
+    """The alignment was reachable only from the repository, like the labels were.
+
+    Where a code has a dereferenceable counterpart -- NUTS does -- it becomes the
+    skos mapping property the alignment claims. The XOEV lists publish no URI per
+    code, so those are stated as a comment rather than pointed at a URI we would
+    have had to invent; both forms are asserted here so neither can be dropped
+    silently.
+    """
+    g = Graph().parse(VOCABULARY, format="turtle")
+    aligned = matches().filter(pl.col("relation").is_not_null())
+    assert aligned.height, "no alignments at all -- did LINKED lose its entries?"
+
+    for row in aligned.iter_rows(named=True):
+        concept = URIRef(concept_uri(SCHEMES[row["column"]], row["code"]))
+        if row["codelist_uri"] is not None:
+            triple = (concept, URIRef(expand(row["relation"])), URIRef(row["codelist_uri"]))
+            assert triple in g, f"{row['code']} lost its {row['relation']}"
+        else:
+            comments = " ".join(str(o) for o in g.objects(concept, RDFS.comment))
+            assert row["codelist_code"] in comments, (
+                f"{row['code']} does not name its {row['codelist']} counterpart"
+            )
+
+    # A category the alignment leaves unmapped must not gain a mapping by accident.
+    for row in matches().filter(pl.col("relation").is_null()).iter_rows(named=True):
+        concept = URIRef(concept_uri(SCHEMES[row["column"]], row["code"]))
+        assert not list(g.objects(concept, SKOS.exactMatch)), (
+            f"{row['code']} has no counterpart but claims an exactMatch"
+        )
 
 
 def test_a_pivoted_vocabulary_is_described_rather_than_enumerated() -> None:

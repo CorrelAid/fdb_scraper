@@ -15,6 +15,7 @@ generations of files.
 from __future__ import annotations
 
 import os
+import re
 import shutil
 import uuid
 from datetime import datetime, timezone
@@ -46,7 +47,9 @@ from fdb_scraper.pipeline import publish
 from fdb_scraper.schema import (
     EXPORT_FIELDS,
     HISTORY_COLUMNS,
+    ISO_WEEK_PATTERN,
     PUBLISHED_FIELDS,
+    TIMESTAMP,
     USEABLE_FIELDS,
 )
 from fdb_scraper.scraper import scrape
@@ -427,6 +430,12 @@ def _monday(n: int) -> datetime:
     return datetime(2026, 1, 5 + 7 * (n - 1), 3, tzinfo=timezone.utc)
 
 
+def iso_week_of(stamp: datetime) -> str:
+    """The published week label for a timestamp, for comparing the two formats."""
+    year, week, _ = stamp.isocalendar()
+    return f"{year}-W{week:02d}"
+
+
 def test_fold_takes_first_seen_from_the_earliest_version() -> None:
     """A programme changed twice is as old as its first version, not its second.
 
@@ -523,6 +532,128 @@ def test_first_scraped_at_survives_the_null_arrival_week() -> None:
 
     assert folded["first_scraped_at"].null_count() == 0
     assert folded["first_scraped_at"].min() == _monday(1), "when the dataset started"
+
+
+def test_first_scraped_at_keeps_the_load_instant() -> None:
+    """The one date that is not rounded to its week.
+
+    The others are inferred by comparing two loads, so a week is the resolution
+    they have. This one records a load, which ran at a known instant, and
+    rounding it would discard precision we hold -- and would stop
+    ``min(first_scraped_at)`` from saying when the dataset began more precisely
+    than "some time that week".
+    """
+    frm, to = VALIDITY_COLUMNS
+    exact = datetime(2026, 1, 5, 3, 0, 22, 25553, tzinfo=timezone.utc)
+    folded = fold(
+        _versions([{"id_hash": "p", "url": "u/p", "title": "P", frm: exact, to: None}])
+    ).to_dicts()[0]
+
+    assert folded["first_scraped_at"] == exact, "the instant was rounded away"
+
+
+def test_the_week_columns_are_all_weeks_and_first_scraped_at_is_not() -> None:
+    """The split between what we observed and what we infer, as a shape check."""
+    frm, to = VALIDITY_COLUMNS
+    folded = fold(
+        _versions([
+            {"id_hash": "p", "url": "u/p", "title": "P", frm: _monday(1), to: _monday(2)},
+            {"id_hash": "p", "url": "u/p", "title": "P2", frm: _monday(2), to: None},
+        ])
+    )
+
+    assert folded.schema["first_scraped_at"] == TIMESTAMP
+    for column in ("on_website_from", "last_updated", "on_website_to"):
+        assert folded.schema[column] == pl.String, f"{column} should be a week"
+    assert folded.schema["previous_update_dates"] == pl.List(pl.String)
+
+    row = folded.to_dicts()[0]
+    for value in (row["last_updated"], *row["previous_update_dates"]):
+        assert re.fullmatch(ISO_WEEK_PATTERN, value), value
+
+
+def test_an_arrival_is_the_week_before_the_load_that_saw_it() -> None:
+    """The shift, stated on its own rather than inside a bigger assertion."""
+    frm, to = VALIDITY_COLUMNS
+    folded = fold(
+        _versions([
+            {"id_hash": "a", "url": "u/a", "title": "A", frm: _monday(1), to: None},
+            {"id_hash": "b", "url": "u/b", "title": "B", frm: _monday(2), to: None},
+            {"id_hash": "c", "url": "u/c", "title": "C", frm: _monday(3), to: None},
+        ])
+    ).sort("url")
+    rows = {r["url"]: r for r in folded.to_dicts()}
+
+    # _monday(2) is in W03 and _monday(3) in W04, so each arrival is one week back.
+    assert rows["u/b"]["first_scraped_at"] == _monday(2)
+    assert rows["u/b"]["on_website_from"] == "2026-W02"
+    assert rows["u/c"]["first_scraped_at"] == _monday(3)
+    assert rows["u/c"]["on_website_from"] == "2026-W03"
+
+
+def test_a_null_arrival_is_exactly_the_first_load_cohort() -> None:
+    """The invariant a consumer needs to read a null arrival at all.
+
+    A null means "already there when we started looking", which is only
+    recoverable by comparing first_scraped_at against the dataset's earliest.
+    If the two ever disagreed, the null would be unexplainable.
+    """
+    frm, to = VALIDITY_COLUMNS
+    folded = fold(
+        _versions([
+            {"id_hash": "o1", "url": "u/o1", "title": "O", frm: _monday(1), to: None},
+            {"id_hash": "o2", "url": "u/o2", "title": "O", frm: _monday(1), to: _monday(2)},
+            {"id_hash": "n1", "url": "u/n1", "title": "N", frm: _monday(2), to: None},
+            {"id_hash": "n2", "url": "u/n2", "title": "N", frm: _monday(3), to: None},
+        ])
+    )
+    started = folded["first_scraped_at"].min()
+
+    null_arrival = folded.filter(pl.col("on_website_from").is_null())
+    from_first_load = folded.filter(pl.col("first_scraped_at") == started)
+    assert sorted(null_arrival["url"]) == sorted(from_first_load["url"])
+    assert folded["first_scraped_at"].null_count() == 0, "the dataset start must survive"
+
+
+def test_a_departure_is_never_before_the_programme_was_first_seen() -> None:
+    """An ordering a consumer may rely on, and which the shift could break."""
+    frm, to = VALIDITY_COLUMNS
+    folded = fold(
+        _versions([
+            # gone at the second load, so last seen at the first
+            {"id_hash": "g", "url": "u/g", "title": "G", frm: _monday(1), to: _monday(2)},
+            # appeared at the second load and gone by the fourth
+            {"id_hash": "h", "url": "u/h", "title": "H", frm: _monday(2), to: _monday(4)},
+            {"id_hash": "live", "url": "u/live", "title": "L", frm: _monday(1), to: None},
+        ])
+    ).sort("url")
+    rows = {r["url"]: r for r in folded.to_dicts()}
+
+    assert rows["u/g"]["on_website_to"] == "2026-W02", "last week it was still there"
+    assert rows["u/g"]["on_website_from"] is None, "it was in the first load"
+    # The departure week is never earlier than the week we first saw it.
+    for row in folded.to_dicts():
+        if row["on_website_to"] is not None:
+            assert row["on_website_to"] >= iso_week_of(row["first_scraped_at"])
+
+
+def test_a_single_checkpoint_yields_no_arrival_and_no_departure() -> None:
+    """One load is no interval: nothing can be inferred from it.
+
+    The degenerate case, and the one where a naive shift would reach past the
+    start of the data for a week that was never observed.
+    """
+    frm, to = VALIDITY_COLUMNS
+    folded = fold(
+        _versions([{"id_hash": "p", "url": "u/p", "title": "P", frm: _monday(1), to: None}])
+    ).to_dicts()[0]
+
+    assert folded["first_scraped_at"] == _monday(1), "we did look, once"
+    assert folded["on_website_from"] is None
+    assert folded["on_website_to"] is None
+    assert folded["last_updated"] is None
+    assert folded["previous_update_dates"] == []
+    assert not folded["absent"]
 
 
 def test_a_manual_scrape_between_two_schedules_is_not_a_checkpoint() -> None:

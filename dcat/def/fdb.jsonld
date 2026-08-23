@@ -475,7 +475,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:finanzierungsform version 1 code 004 (\"Beteiligung\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:finanzierungsform version 1 code 004 (\"Beteiligung\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:finanzierungsform_1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -503,7 +508,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:finanzierungsform version 1 code 005 (\"Bürgschaften\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:finanzierungsform version 1 code 005 (\"Bürgschaften\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:finanzierungsform_1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -531,7 +541,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:finanzierungsform version 1 code 002 (\"Kredit/Darlehen\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:finanzierungsform version 1 code 002 (\"Kredit/Darlehen\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:finanzierungsform_1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -603,7 +618,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:finanzierungsform version 1 code 001 (\"Zuschuss\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:finanzierungsform version 1 code 001 (\"Zuschuss\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:finanzierungsform_1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -721,7 +741,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 006 (\"Forschungseinrichtungen\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 006 (\"Forschungseinrichtungen\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerdernehmende_1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -771,7 +796,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 009 (\"Kommunen\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 009 (\"Kommunen\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerdernehmende_1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -799,7 +829,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:narrowMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 008 (\"Behörden\") -- that codelist publishes no URI per code"
+        "@value": "skos:narrowMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 008 (\"Behörden\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerdernehmende_1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -827,7 +862,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 001 (\"Privatpersonen\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 001 (\"Privatpersonen\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerdernehmende_1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -855,15 +895,20 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:narrowMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 002 (\"Kleine und mittlere Unternehmen\") -- that codelist publishes no URI per code"
+        "@value": "skos:narrowMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 002 (\"Kleine und mittlere Unternehmen\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
       },
       {
         "@language": "en",
-        "@value": "skos:narrowMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 003 (\"Einzelunternehmen\") -- that codelist publishes no URI per code"
+        "@value": "skos:narrowMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 003 (\"Einzelunternehmen\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
       },
       {
         "@language": "en",
-        "@value": "skos:narrowMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 005 (\"Großunternehmen\") -- that codelist publishes no URI per code"
+        "@value": "skos:narrowMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 005 (\"Großunternehmen\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerdernehmende_1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -891,7 +936,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 011 (\"Verbände\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerdernehmende version 1 code 011 (\"Verbände\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerdernehmende_1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1007,7 +1057,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 001 (\"Arbeit\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 001 (\"Arbeit\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerderbereich_1.1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1035,7 +1090,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 002 (\"Aus und Weiterbildung\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 002 (\"Aus und Weiterbildung\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerderbereich_1.1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1063,7 +1123,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 003 (\"Außenwirtschaft\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 003 (\"Außenwirtschaft\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerderbereich_1.1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1091,7 +1156,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 004 (\"Beratung\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 004 (\"Beratung\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerderbereich_1.1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1119,7 +1189,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 005 (\"Corona-Hilfe\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 005 (\"Corona-Hilfe\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerderbereich_1.1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1147,7 +1222,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 006 (\"Digitalisierung\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 006 (\"Digitalisierung\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerderbereich_1.1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1175,7 +1255,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 007 (\"Energieeffizienz und Erneuerbare Energien\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 007 (\"Energieeffizienz und Erneuerbare Energien\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerderbereich_1.1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1203,7 +1288,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 008 (\"Existenzgründung und -festigung\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 008 (\"Existenzgründung und -festigung\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerderbereich_1.1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1231,7 +1321,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 009 (\"Forschung und Innovation (themenoffen)\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 009 (\"Forschung und Innovation (themenoffen)\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerderbereich_1.1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1259,7 +1354,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 010 (\"Forschung und Innovation (themenspezifisch)\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 010 (\"Forschung und Innovation (themenspezifisch)\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerderbereich_1.1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1309,7 +1409,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 011 (\"Gesundheit und Soziales\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 011 (\"Gesundheit und Soziales\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerderbereich_1.1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1337,7 +1442,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 012 (\"Infrastruktur\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 012 (\"Infrastruktur\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerderbereich_1.1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1365,7 +1475,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 013 (\"Kultur, Medien und Sport\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 013 (\"Kultur, Medien und Sport\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerderbereich_1.1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1393,7 +1508,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 014 (\"Landwirtschaft und Ländliche Entwicklung\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 014 (\"Landwirtschaft und Ländliche Entwicklung\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerderbereich_1.1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1421,7 +1541,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 015 (\"Messen und Ausstellungen\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 015 (\"Messen und Ausstellungen\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerderbereich_1.1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1471,7 +1596,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 016 (\"Regionalförderung\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 016 (\"Regionalförderung\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerderbereich_1.1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1499,7 +1629,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 017 (\"Smart Cities und Regionen\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 017 (\"Smart Cities und Regionen\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerderbereich_1.1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1527,7 +1662,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 018 (\"Städtebau und Stadterneuerung\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 018 (\"Städtebau und Stadterneuerung\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerderbereich_1.1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1555,7 +1695,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 019 (\"Umwelt- und Naturschutz\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 019 (\"Umwelt- und Naturschutz\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerderbereich_1.1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1583,7 +1728,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 020 (\"Unternehmensfinanzierung\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 020 (\"Unternehmensfinanzierung\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerderbereich_1.1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1611,7 +1761,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 021 (\"Wohnungsbau und Modernisierung\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:foerderbereich version 1.1 code 021 (\"Wohnungsbau und Modernisierung\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:foerderbereich_1.1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1667,7 +1822,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:geldgebende-institution version 1 code 002 (\"Bund\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:geldgebende-institution version 1 code 002 (\"Bund\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:geldgebende-institution_1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1695,7 +1855,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:geldgebende-institution version 1 code 001 (\"EU\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:geldgebende-institution version 1 code 001 (\"EU\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:geldgebende-institution_1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1723,7 +1888,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:geldgebende-institution version 1 code 003 (\"Land\") -- that codelist publishes no URI per code"
+        "@value": "skos:exactMatch urn:xoev-de:stmd:codeliste:geldgebende-institution version 1 code 003 (\"Land\") -- that codelist addresses its codes only as rows of its document, so there is no URI to point at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.xrepository.de/api/xrepository/urn:xoev-de:stmd:codeliste:geldgebende-institution_1:technischerBestandteilGenericode"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [

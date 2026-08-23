@@ -320,10 +320,11 @@ def _add_codelist_matches(g: Graph) -> None:
 
     Only NUTS gives its codes dereferenceable URIs, so only those become a skos
     mapping property pointing at the code itself. The XOEV lists are identified by
-    a URN and publish no per-code URI; minting one on their behalf would be
-    inventing an addressing scheme for someone else's vocabulary, so the mapping
-    is stated as a comment naming the list, its version and the code. Less
-    machine-readable, and the only form that is true.
+    a URN and address a code only as a row of a Genericode document -- no URI to
+    point at, and minting one on their behalf would be inventing an addressing
+    scheme for someone else's vocabulary. Those mappings name the code in a
+    comment and link the document it is defined in with ``rdfs:seeAlso``, so the
+    target is reachable even though it is not addressable.
 
     The values stay the export's own codes; this only says what they line up with.
     """
@@ -340,8 +341,10 @@ def _add_codelist_matches(g: Graph) -> None:
             Literal(
                 f'{row["relation"]} {row["codelist"]} '
                 f'version {row["codelist_version"]} code {row["codelist_code"]} '
-                f'("{row["codelist_label"]}") -- that codelist publishes no URI '
-                "per code",
+                f'("{row["codelist_label"]}") -- that codelist addresses its codes '
+                "only as rows of its document, so there is no URI to point at",
                 lang="en",
             ),
         ))
+        if row["codelist_url"] is not None:
+            g.add((concept, RDFS.seeAlso, URIRef(row["codelist_url"])))

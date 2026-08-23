@@ -222,9 +222,10 @@ def _render_concept_schemes(graph: Graph) -> str:
                 for prop in (SKOS.exactMatch, SKOS.narrowMatch, SKOS.broadMatch)
                 for target in graph.objects(concept, prop)
             ] + [
-                str(note)
+                f'{note} &mdash; <a href="{doc}"><code>{doc}</code></a>'
                 for note in graph.objects(concept, RDFS.comment)
-                if "publishes no URI" in str(note)
+                if "no URI to point at" in str(note)
+                for doc in graph.objects(concept, RDFS.seeAlso)
             ]
             rows.append(
                 f'<tr id="{c_frag}"><td><code>{code}</code></td>'

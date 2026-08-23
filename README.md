@@ -28,8 +28,10 @@ and NUTS for `funding_location`), derived by label match in
 [`fdb_scraper.codelists`](src/fdb_scraper/codelists.py). The values stay the export's
 own codes; the alignment is published beside them in the vocabulary, as
 `skos:exactMatch` / `skos:narrowMatch` where the target codelist gives its codes a
-URI (NUTS does) and as a comment naming list, version and code where it does not
-(the XÖV lists publish no per-code URI). `fdb_scraper.matches()` and
+URI (NUTS does) and, where it does not, as a comment naming list, version and code
+plus an `rdfs:seeAlso` to the list document — the XÖV lists are retrievable from
+XRepository as Genericode, but address a code only as a row of that document, so
+there is no URI to point at. `fdb_scraper.matches()` and
 `fdb_scraper.unmatched()` give the same table in-repo, the latter with the reason a
 category was left unmapped.
 

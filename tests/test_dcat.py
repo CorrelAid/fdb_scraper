@@ -220,6 +220,11 @@ def test_every_codelist_alignment_is_published() -> None:
             assert row["codelist_code"] in comments, (
                 f"{row['code']} does not name its {row['codelist']} counterpart"
             )
+            # Not addressable is not the same as not reachable: the document the
+            # code is defined in has a URL, and the mapping links it.
+            assert URIRef(row["codelist_url"]) in set(g.objects(concept, RDFS.seeAlso)), (
+                f"{row['code']} does not link the document its counterpart is in"
+            )
 
     # A category the alignment leaves unmapped must not gain a mapping by accident.
     for row in matches().filter(pl.col("relation").is_null()).iter_rows(named=True):

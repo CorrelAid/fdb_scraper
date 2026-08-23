@@ -780,6 +780,13 @@ TERM_EDGE = " ,;.:()[]\"'"
 # choice of codelist, not the per-code mapping: which codes correspond is derived
 # by label match in :mod:`fdb_scraper.codelists`, and the exceptions that match
 # cannot make live there beside it.
+# XRepository's Genericode endpoint: "{identifier}_{version}" addresses one
+# version of a list, which is what CODELISTS records.
+_XREPOSITORY = (
+    "https://www.xrepository.de/api/xrepository/"
+    "{identifier}_{version}:technischerBestandteilGenericode"
+)
+
 LINKED = {
     "funding_type": ("finanzierungsform", "foerderart"),
     "funding_body": ("geldgebende-institution", "foerdergeber"),
@@ -792,3 +799,16 @@ LINKED = {
 # identifies its lists by URN and gives codes no URI of their own, so only NUTS
 # has one; for the rest a consumer resolves the code against the list identifier.
 CODE_URI = {"nuts": "http://data.europa.eu/nuts/code/{}"}
+
+# Where the list itself can be fetched, formatted with its identifier and version.
+# The codes inside have no URI, but the list does, so a mapping that cannot point
+# at a code can still point at the document the code is defined in. XRepository
+# serves the XÖV lists as Genericode; NUTS is its own document and needs no
+# template.
+CODELIST_URL = {
+    "finanzierungsform": _XREPOSITORY,
+    "geldgebende-institution": _XREPOSITORY,
+    "foerderbereich": _XREPOSITORY,
+    "foerdernehmende": _XREPOSITORY,
+    "nuts": "http://data.europa.eu/nuts",
+}

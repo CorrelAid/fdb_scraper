@@ -43,7 +43,7 @@ from dataclasses import dataclass
 
 import polars as pl
 
-from fdb_scraper.config import CODE_URI, LINKED, RENAMES
+from fdb_scraper.config import CODE_URI, CODELIST_URL, LINKED, RENAMES
 from fdb_scraper.generated import CODELISTS, CLOSED_VOCABS
 
 IDENTIFIERS = {name: cl["identifier"] for name, cl in CODELISTS.items()}
@@ -178,6 +178,22 @@ def code_uri(codelist: str, code: str) -> str | None:
     return template.format(code) if template else None
 
 
+def codelist_url(codelist: str) -> str | None:
+    """Where the codelist document itself can be fetched.
+
+    The XÖV lists give their codes no URI, so a mapping onto one of them has
+    nothing to point at -- but the list is retrievable, and naming the document a
+    code is defined in beats naming nothing.
+    """
+    template = CODELIST_URL.get(codelist)
+    if template is None:
+        return None
+    cl = CODELISTS[codelist]
+    if "{" not in template:
+        return template
+    return template.format(identifier=cl["identifier"], version=cl["version"])
+
+
 def matches() -> pl.DataFrame:
     """Every export category with the codelist codes it corresponds to.
 
@@ -195,6 +211,7 @@ def matches() -> pl.DataFrame:
                 "label": CLOSED_VOCABS[vocab_key][code],
                 "codelist": cl["identifier"],
                 "codelist_version": cl["version"],
+                "codelist_url": codelist_url(codelist),
             }
             if not ms:
                 rows.append(
@@ -227,6 +244,7 @@ def matches() -> pl.DataFrame:
             "label": pl.String,
             "codelist": pl.String,
             "codelist_version": pl.String,
+            "codelist_url": pl.String,
             "relation": pl.String,
             "codelist_code": pl.String,
             "codelist_label": pl.String,

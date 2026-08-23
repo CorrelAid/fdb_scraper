@@ -796,7 +796,12 @@ def _history_at(versions: pl.DataFrame, checkpoints: list[datetime]) -> pl.DataF
             # load itself, not the interval before it. Never null, which is what
             # keeps the dataset's own start recoverable as its minimum once
             # on_website_from goes null for everything the first load found.
-            first_scraped_at=iso_week(pl.col("_seen").list.min()),
+            #
+            # The one date here that is not a week. The others are inferred by
+            # comparing two loads, so a week is the resolution they actually
+            # have; this one is a load, which happened at a known instant, and
+            # rounding it to its week would discard precision we hold.
+            first_scraped_at=pl.col("_seen").list.min(),
             # When it appeared: the interval ending at the load that first saw
             # it. Null for a programme the first load already found, whose
             # arrival predates anything we can see.

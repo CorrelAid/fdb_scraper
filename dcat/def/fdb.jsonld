@@ -401,7 +401,7 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "ISO week (e.g. 2026-W34) of the load that first saw this programme. An observation rather than an inference, so unlike the other week columns it names the week we looked and is never null. Its minimum over the table is the week this dataset began, and the rows carrying that minimum are the ones the first load found -- exactly those whose on_website_from is null"
+        "@value": "when the load that first saw this programme ran. The one date here that is a timestamp rather than an ISO week: the others are inferred by comparing two loads, so a week is the resolution they actually have, while this is a load and ran at a known instant. An observation rather than an inference, so it is never null. Its minimum over the table is when this dataset began, and the rows carrying that minimum are the ones the first load found -- exactly those whose on_website_from is null"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
@@ -421,7 +421,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
+        "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
       }
     ],
     "https://fdb.cdl.correlaid.org/def/fdb#origin": [

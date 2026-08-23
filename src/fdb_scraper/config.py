@@ -477,11 +477,13 @@ MEANING_NOTES = {
         "identifier of its own: it is stable exactly as long as the source URL is"
     ),
     "first_scraped_at": (
-        "ISO week (e.g. 2026-W34) of the load that first saw this programme. An "
-        "observation rather than an inference, so unlike the other week columns it "
-        "names the week we looked and is never null. Its minimum over the table is "
-        "the week this dataset began, and the rows carrying that minimum are the "
-        "ones the first load found -- exactly those whose on_website_from is null"
+        "when the load that first saw this programme ran. The one date here that is "
+        "a timestamp rather than an ISO week: the others are inferred by comparing "
+        "two loads, so a week is the resolution they actually have, while this is a "
+        "load and ran at a known instant. An observation rather than an inference, "
+        "so it is never null. Its minimum over the table is when this dataset "
+        "began, and the rows carrying that minimum are the ones the first load "
+        "found -- exactly those whose on_website_from is null"
     ),
     "on_website_from": (
         "ISO week (e.g. 2026-W34) in which this programme was first present in the "

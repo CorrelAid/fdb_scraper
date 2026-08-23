@@ -49,29 +49,30 @@ The export ships only its current state, so this dataset adds six columns of its
 own: `first_scraped_at`, `on_website_from`, `last_updated`, `previous_update_dates`,
 `on_website_to` and `absent`.
 
-The dates are **ISO weeks** (`2026-W34`), not timestamps. A load can only report that
-something differs from the load before it, so the week between two loads is the
-resolution we actually have — a timestamp would claim a precision the source never
-states.
+The inferred dates are **ISO weeks** (`2026-W34`), not timestamps. A load can only
+report that something differs from the load before it, so the week between two loads
+is the resolution we actually have — a timestamp would claim a precision the source
+never states. `first_scraped_at` is the exception: it records a load, which ran at a
+known instant, so it stays a timestamp.
 
 They split into what we *observed* and what we *infer* from it:
 
 | column | means | null when |
 | --- | --- | --- |
-| `first_scraped_at` | the week of the load that first saw it | never |
+| `first_scraped_at` | when the load that first saw it ran (timestamp) | never |
 | `on_website_from` | the week it appeared | it was already there at the first load |
 | `last_updated` | the week its content last changed | it has never changed |
 | `previous_update_dates` | one week per observed change | (empty list) |
 | `on_website_to` | the last week it was still present | it is still present |
 
-`first_scraped_at` names the week we looked. Every other date names the week the
+`first_scraped_at` records when we looked. Every other date names the week the
 event fell in, which is the week *before* the load that noticed — a Monday load
 reports what changed during the week before it. (`on_website_to` needs no shift of
 its own: the last load that still saw a programme is already the one before the load
 that found it gone.)
 
 ```
-first_scraped_at       2026-W33
+first_scraped_at       2026-08-10T03:00:22.025553+0000
 on_website_from        2026-W32     appeared during W32, seen at the W33 load
 last_updated           2026-W34
 previous_update_dates  ["2026-W33","2026-W34"]
@@ -86,7 +87,7 @@ Three consequences worth knowing before using them:
   knowable and any value would be invented. They are the rows whose
   `first_scraped_at` equals `min(first_scraped_at)` — currently most of the dataset,
   shrinking every week as new programmes arrive with a real arrival week.
-- **`min(first_scraped_at)` is the week this dataset started**, which is what
+- **`min(first_scraped_at)` is when this dataset started**, which is what
   `min(on_website_from)` used to answer.
 - **`len(previous_update_dates)` counts weeks, not changes.** One week is a single
   comparison between two loads, so two changes inside it are indistinguishable from

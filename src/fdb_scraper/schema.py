@@ -34,6 +34,7 @@ from fdb_scraper.config import (
     INFERRED_COLUMNS,
     ISSUE_EPOCH,
     LICENCE_LABEL,
+    LOAD_EPOCH,
     OPEN_LINK_FIELDS,
     PIVOTS,
     RENAMES,
@@ -274,11 +275,15 @@ COLUMNS: dict[str, pa.Column] = {
     # scd2 table by :func:`fdb_scraper.history.fold`, which is why they are absent
     # from a plain :func:`fdb_scraper.collect` -- see EXPORT_FIELDS.
     # When we first saw it, not when it appeared: an observation, so it is never
-    # null and its minimum over the table is the week this dataset started.
+    # null and its minimum over the table is when this dataset started.
+    #
+    # A timestamp rather than a week, unlike every other date here. Those are
+    # inferred by comparing two loads and a week is the resolution they have;
+    # this is a load, which ran at a known instant.
     "first_scraped_at": pa.Column(
-        pl.String,
+        TIMESTAMP,
         nullable=False,
-        checks=pa.Check.str_matches(ISO_WEEK_PATTERN),
+        checks=pa.Check.in_range(LOAD_EPOCH, FAR_FUTURE),
     ),
     # Null for a programme the very first load already found: it was on the site
     # before we started looking, so its arrival week is not observable. Those are

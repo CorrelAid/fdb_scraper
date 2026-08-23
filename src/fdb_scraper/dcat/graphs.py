@@ -14,9 +14,13 @@ from __future__ import annotations
 from datetime import datetime
 
 from rdflib import Graph, Literal, Namespace, URIRef
-from rdflib.namespace import RDF, RDFS, XSD
+from rdflib.namespace import RDF, RDFS, SKOS, XSD
 
+from fdb_scraper.generated import CLOSED_VOCABS
+from fdb_scraper.semantics import SCHEME_VOCAB, SCHEMES
 from fdb_scraper.dcat.columns import (
+    concept_uri,
+    scheme_uri,
     inferred_note,
     meaning_note,
     range_of,
@@ -42,6 +46,7 @@ from fdb_scraper.config import (
     ONTOLOGY_TITLE_DE,
     ORIGIN_COMMENT_EN,
     ORIGIN_TERM,
+    PIVOTS,
     POLITICAL_LEVELS,
     PUBLISHER,
     RECORD_CLASS,
@@ -195,10 +200,15 @@ def build_vocabulary(modified: datetime) -> Graph:
     publishes those namespaces; restating them here would assert authority over
     someone else's vocabulary.
 
-    Closed vocabularies are named in a comment rather than enumerated. Their
-    codes have no URIs -- see the note on ``aboutUrl`` in
-    :func:`fdb_scraper.dcat.table_schema.build_table_schema` -- so a ``rdfs:range``
-    pointing at a concept scheme would be a link to nothing.
+    The plain closed vocabularies are enumerated as skos concept schemes, so the
+    labels the export gives its codes are published rather than left in the
+    repository. A consumer reading ``arbeit`` in the CSV can resolve it to
+    "Arbeit" here instead of cloning this project.
+
+    The pivoted vocabularies are not. Their values are ``parent.child`` paths
+    whose children come from one vocabulary per parent, so enumerating them means
+    minting a concept per path and a hierarchy to go with it; the column comment
+    states the shape instead, which is what :func:`vocab_note` produces.
     """
     g = Graph()
     for prefix, uri in NAMESPACES.items():
@@ -257,4 +267,35 @@ def build_vocabulary(modified: datetime) -> Graph:
             if note is not None:
                 g.add((term, RDFS.comment, Literal(note, lang="en")))
 
+    _add_concept_schemes(g, ontology)
     return g
+
+
+def _add_concept_schemes(g: Graph, ontology: URIRef) -> None:
+    """The closed vocabularies, so a code in the CSV resolves to its label.
+
+    Only the plain ones. A pivoted column's values are ``parent.child`` paths
+    drawn from a vocabulary per parent, which is a hierarchy rather than a flat
+    scheme; :func:`fdb_scraper.dcat.columns.vocab_note` describes those in prose.
+
+    The label is the export's own, so it is tagged ``de``: these are German
+    categories from a German source, and translating them would be inventing.
+    """
+    for scheme in sorted(set(SCHEMES.values())):
+        if scheme in PIVOTS:
+            continue
+        source = SCHEME_VOCAB[scheme]
+        scheme_ref = URIRef(scheme_uri(scheme))
+        g.add((scheme_ref, RDF.type, SKOS.ConceptScheme))
+        g.add((scheme_ref, DCT["title"], Literal(source, lang="de")))
+        g.add((scheme_ref, RDFS.isDefinedBy, ontology))
+        for code, label in CLOSED_VOCABS[source].items():
+            concept = URIRef(concept_uri(scheme, code))
+            g.add((concept, RDF.type, SKOS.Concept))
+            g.add((concept, SKOS.inScheme, scheme_ref))
+            # The code as it appears in the cell, so a consumer can join on it.
+            g.add((concept, SKOS.notation, Literal(code)))
+            g.add((concept, SKOS.prefLabel, Literal(label, lang="de")))
+        # topConceptOf on every concept: the scheme is flat, so they are all top.
+        for code in CLOSED_VOCABS[source]:
+            g.add((scheme_ref, SKOS.hasTopConcept, URIRef(concept_uri(scheme, code))))

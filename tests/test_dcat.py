@@ -25,12 +25,14 @@ from pathlib import Path
 
 import pytest
 from pyshacl import validate
-from rdflib import Graph, URIRef
+from rdflib import Graph, Literal, URIRef
 from rdflib.namespace import DCAT, DCTERMS, RDF, SH, SKOS
 
 from fdb_scraper.schema import PUBLISHED_FIELDS
-from fdb_scraper.config import VOCAB
-from fdb_scraper.semantics import ANNOTATIONS, PREDICATES, expand
+from fdb_scraper.config import PIVOTS, VOCAB
+from fdb_scraper.dcat.columns import concept_uri, scheme_uri, vocab_note
+from fdb_scraper.generated import CLOSED_VOCABS
+from fdb_scraper.semantics import ANNOTATIONS, PREDICATES, SCHEME_VOCAB, SCHEMES, expand
 
 ROOT = Path(__file__).parent.parent
 TABLE_SCHEMA = ROOT / "dcat" / "table-schema.json"
@@ -138,6 +140,50 @@ def test_table_schema_covers_every_published_column() -> None:
     columns = schema["tableSchema"]["columns"]
     assert [c["name"] for c in columns] == list(PUBLISHED_FIELDS)
     assert all(c["propertyUrl"] for c in columns)
+
+
+def test_every_code_of_a_plain_vocabulary_resolves_to_its_label() -> None:
+    """The column comment points at a concept scheme; it has to be there.
+
+    ``vocab_note`` used to name a Python module path, which is nothing to a
+    consumer who has the CSV and not the repository. It now names a scheme URI in
+    this document, so every code the data can hold must be a concept in it,
+    carrying the label and the notation to join on.
+    """
+    g = Graph().parse(VOCABULARY, format="turtle")
+    schemes = set(g.subjects(RDF.type, SKOS.ConceptScheme))
+    assert schemes, "no concept schemes at all -- was the vocabulary regenerated?"
+
+    for column, scheme in SCHEMES.items():
+        if column in PIVOTS:
+            continue  # a hierarchy, described in prose rather than enumerated
+        scheme_ref = URIRef(scheme_uri(scheme))
+        assert scheme_ref in schemes, f"{column} points at a missing scheme"
+        assert scheme_uri(scheme) in vocab_note(column), (
+            f"{column}'s comment does not name the scheme a consumer should fetch"
+        )
+        for code, label in CLOSED_VOCABS[SCHEME_VOCAB[scheme]].items():
+            concept = URIRef(concept_uri(scheme, code))
+            assert (concept, SKOS.inScheme, scheme_ref) in g, f"{code} not in {scheme}"
+            assert (concept, SKOS.prefLabel, Literal(label, lang="de")) in g, (
+                f"{code} carries no label"
+            )
+            assert (concept, SKOS.notation, Literal(code)) in g, (
+                f"{code} has no notation to join the CSV on"
+            )
+
+
+def test_a_pivoted_vocabulary_is_described_rather_than_enumerated() -> None:
+    """The deliberate asymmetry, so dropping it is a choice and not a drift."""
+    g = Graph().parse(VOCABULARY, format="turtle")
+    concepts = {str(c) for c in g.subjects(RDF.type, SKOS.Concept)}
+
+    for column in PIVOTS:
+        note = vocab_note(column)
+        assert "parent" in note, f"{column} should describe its path shape"
+        assert not any(f"#{column}-" in c for c in concepts), (
+            f"{column} was enumerated; the note still says it is not"
+        )
 
 
 def test_every_minted_term_is_defined() -> None:

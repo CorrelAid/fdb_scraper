@@ -167,7 +167,7 @@
         "fdb:origin": "upstream",
         "datatype": "string",
         "required": false,
-        "dc:description": "zero or more values per row, JSON-encoded in the cell as an array of strings; closed vocabulary, 6 codes; labels in fdb_scraper.generated.vocab.FOERDERART"
+        "dc:description": "zero or more values per row, JSON-encoded in the cell as an array of strings; closed vocabulary, 6 codes; each code is a skos:Concept in https://fdb.cdl.correlaid.org/def/fdb#foerderart, which carries its label"
       },
       {
         "name": "eligible_applicants",
@@ -176,7 +176,7 @@
         "fdb:origin": "upstream",
         "datatype": "string",
         "required": false,
-        "dc:description": "zero or more values per row, JSON-encoded in the cell as an array of strings; closed vocabulary, 9 codes; labels in fdb_scraper.generated.vocab.FOERDERBERECHTIGTE"
+        "dc:description": "zero or more values per row, JSON-encoded in the cell as an array of strings; closed vocabulary, 9 codes; each code is a skos:Concept in https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte, which carries its label"
       },
       {
         "name": "funding_area",
@@ -185,7 +185,7 @@
         "fdb:origin": "upstream",
         "datatype": "string",
         "required": false,
-        "dc:description": "zero or more values per row, JSON-encoded in the cell as an array of strings; closed vocabulary, 23 codes; labels in fdb_scraper.generated.vocab.FOERDERBEREICH"
+        "dc:description": "zero or more values per row, JSON-encoded in the cell as an array of strings; closed vocabulary, 23 codes; each code is a skos:Concept in https://fdb.cdl.correlaid.org/def/fdb#foerderbereich, which carries its label"
       },
       {
         "name": "funding_body",
@@ -194,7 +194,7 @@
         "fdb:origin": "upstream",
         "datatype": "string",
         "required": false,
-        "dc:description": "zero or more values per row, JSON-encoded in the cell as an array of strings; closed vocabulary, 3 codes; labels in fdb_scraper.generated.vocab.FOERDERGEBER"
+        "dc:description": "zero or more values per row, JSON-encoded in the cell as an array of strings; closed vocabulary, 3 codes; each code is a skos:Concept in https://fdb.cdl.correlaid.org/def/fdb#foerdergeber, which carries its label"
       },
       {
         "name": "funding_location",
@@ -203,7 +203,7 @@
         "fdb:origin": "upstream",
         "datatype": "string",
         "required": false,
-        "dc:description": "zero or more values per row, JSON-encoded in the cell as an array of strings; closed vocabulary, 18 codes; labels in fdb_scraper.generated.vocab.FOERDERGEBIET"
+        "dc:description": "zero or more values per row, JSON-encoded in the cell as an array of strings; closed vocabulary, 18 codes; each code is a skos:Concept in https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet, which carries its label"
       },
       {
         "name": "funding_organisation",
@@ -221,7 +221,7 @@
         "fdb:origin": "upstream",
         "datatype": "string",
         "required": false,
-        "dc:description": "zero or more values per row, JSON-encoded in the cell as an array of strings; closed vocabulary, 2 codes; labels in fdb_scraper.generated.vocab.GRW"
+        "dc:description": "zero or more values per row, JSON-encoded in the cell as an array of strings; closed vocabulary, 2 codes; each code is a skos:Concept in https://fdb.cdl.correlaid.org/def/fdb#grw, which carries its label"
       },
       {
         "name": "unternehmensgroesse",
@@ -230,7 +230,7 @@
         "fdb:origin": "upstream",
         "datatype": "string",
         "required": false,
-        "dc:description": "zero or more values per row, JSON-encoded in the cell as an array of strings; closed vocabulary, 4 codes; labels in fdb_scraper.generated.vocab.UNTERNEHMENSGROESSE"
+        "dc:description": "zero or more values per row, JSON-encoded in the cell as an array of strings; closed vocabulary, 4 codes; each code is a skos:Concept in https://fdb.cdl.correlaid.org/def/fdb#unternehmensgroesse, which carries its label"
       },
       {
         "name": "contact_ids",

@@ -32,6 +32,7 @@ from fdb_scraper.config import (
     PIVOT_PARENT_VOCAB,
     PIVOTS,
     SEPARATOR,
+    VOCAB,
 )
 from fdb_scraper.generated import CLOSED_VOCABS
 from fdb_scraper.schema import COLUMNS, PUBLISHED_FIELDS, pivot_paths
@@ -84,6 +85,24 @@ def inferred_note(column: str) -> str | None:
     return INFERRED_NOTES.get(column)
 
 
+def scheme_uri(scheme: str) -> str:
+    """The concept scheme a column's codes belong to.
+
+    A fragment of the vocabulary document, like every other minted term, so the
+    codes resolve without hosting anything per scheme.
+    """
+    return f"{VOCAB}{scheme}"
+
+
+def concept_uri(scheme: str, code: str) -> str:
+    """One code of one scheme.
+
+    Prefixed with the scheme because the codes are only unique within it --
+    ``forschung`` is a foerderbereich and also a foerderart.
+    """
+    return f"{VOCAB}{scheme}-{code}"
+
+
 def meaning_note(column: str) -> str | None:
     """What a column's values mean, where the name does not say it."""
     return MEANING_NOTES.get(column)
@@ -108,8 +127,8 @@ def vocab_note(column: str) -> str | None:
     # the codes come from has to be looked up.
     source = SCHEME_VOCAB[scheme]
     return (
-        f"closed vocabulary, {len(CLOSED_VOCABS[source])} codes; labels in "
-        f"fdb_scraper.generated.vocab.{source.upper()}"
+        f"closed vocabulary, {len(CLOSED_VOCABS[source])} codes; each code is a "
+        f"skos:Concept in {scheme_uri(scheme)}, which carries its label"
     )
 
 

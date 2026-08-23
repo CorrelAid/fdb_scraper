@@ -3,6 +3,7 @@ PREFIX fdb: <https://fdb.cdl.correlaid.org/def/fdb#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 fdb:Foerderprogramm
@@ -100,7 +101,7 @@ fdb:deadlines
 fdb:eligibleApplicants
     a rdf:Property ;
     rdfs:label "eligible_applicants" ;
-    rdfs:comment "closed vocabulary, 9 codes; labels in fdb_scraper.generated.vocab.FOERDERBERECHTIGTE"@en ;
+    rdfs:comment "closed vocabulary, 9 codes; each code is a skos:Concept in https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte, which carries its label"@en ;
     rdfs:domain fdb:Foerderprogramm ;
     rdfs:isDefinedBy <https://fdb.cdl.correlaid.org/def/fdb> ;
     rdfs:range xsd:string ;
@@ -120,7 +121,7 @@ fdb:firstScrapedAt
 fdb:fundingArea
     a rdf:Property ;
     rdfs:label "funding_area" ;
-    rdfs:comment "closed vocabulary, 23 codes; labels in fdb_scraper.generated.vocab.FOERDERBEREICH"@en ;
+    rdfs:comment "closed vocabulary, 23 codes; each code is a skos:Concept in https://fdb.cdl.correlaid.org/def/fdb#foerderbereich, which carries its label"@en ;
     rdfs:domain fdb:Foerderprogramm ;
     rdfs:isDefinedBy <https://fdb.cdl.correlaid.org/def/fdb> ;
     rdfs:range xsd:string ;
@@ -130,7 +131,7 @@ fdb:fundingArea
 fdb:fundingBody
     a rdf:Property ;
     rdfs:label "funding_body" ;
-    rdfs:comment "closed vocabulary, 3 codes; labels in fdb_scraper.generated.vocab.FOERDERGEBER"@en ;
+    rdfs:comment "closed vocabulary, 3 codes; each code is a skos:Concept in https://fdb.cdl.correlaid.org/def/fdb#foerdergeber, which carries its label"@en ;
     rdfs:domain fdb:Foerderprogramm ;
     rdfs:isDefinedBy <https://fdb.cdl.correlaid.org/def/fdb> ;
     rdfs:range xsd:string ;
@@ -159,17 +160,7 @@ fdb:fundingSubarea
 fdb:fundingType
     a rdf:Property ;
     rdfs:label "funding_type" ;
-    rdfs:comment "closed vocabulary, 6 codes; labels in fdb_scraper.generated.vocab.FOERDERART"@en ;
-    rdfs:domain fdb:Foerderprogramm ;
-    rdfs:isDefinedBy <https://fdb.cdl.correlaid.org/def/fdb> ;
-    rdfs:range xsd:string ;
-    fdb:origin "upstream" ;
-.
-
-fdb:grw
-    a rdf:Property ;
-    rdfs:label "grw" ;
-    rdfs:comment "closed vocabulary, 2 codes; labels in fdb_scraper.generated.vocab.GRW"@en ;
+    rdfs:comment "closed vocabulary, 6 codes; each code is a skos:Concept in https://fdb.cdl.correlaid.org/def/fdb#foerderart, which carries its label"@en ;
     rdfs:domain fdb:Foerderprogramm ;
     rdfs:isDefinedBy <https://fdb.cdl.correlaid.org/def/fdb> ;
     rdfs:range xsd:string ;
@@ -316,14 +307,587 @@ fdb:statusNote
     fdb:origin "upstream" ;
 .
 
-fdb:unternehmensgroesse
-    a rdf:Property ;
-    rdfs:label "unternehmensgroesse" ;
-    rdfs:comment "closed vocabulary, 4 codes; labels in fdb_scraper.generated.vocab.UNTERNEHMENSGROESSE"@en ;
+fdb:foerderart-beteiligung
+    a skos:Concept ;
+    skos:inScheme fdb:foerderart ;
+    skos:notation "beteiligung" ;
+    skos:prefLabel "Beteiligung"@de ;
+.
+
+fdb:foerderart-buergschaft
+    a skos:Concept ;
+    skos:inScheme fdb:foerderart ;
+    skos:notation "buergschaft" ;
+    skos:prefLabel "Bürgschaft"@de ;
+.
+
+fdb:foerderart-darlehen
+    a skos:Concept ;
+    skos:inScheme fdb:foerderart ;
+    skos:notation "darlehen" ;
+    skos:prefLabel "Darlehen"@de ;
+.
+
+fdb:foerderart-garantie
+    a skos:Concept ;
+    skos:inScheme fdb:foerderart ;
+    skos:notation "garantie" ;
+    skos:prefLabel "Garantie"@de ;
+.
+
+fdb:foerderart-sonstige
+    a skos:Concept ;
+    skos:inScheme fdb:foerderart ;
+    skos:notation "sonstige" ;
+    skos:prefLabel "Sonstige"@de ;
+.
+
+fdb:foerderart-zuschuss
+    a skos:Concept ;
+    skos:inScheme fdb:foerderart ;
+    skos:notation "zuschuss" ;
+    skos:prefLabel "Zuschuss"@de ;
+.
+
+fdb:foerderberechtigte-bildungseinrichtung
+    a skos:Concept ;
+    skos:inScheme fdb:foerderberechtigte ;
+    skos:notation "bildungseinrichtung" ;
+    skos:prefLabel "Bildungseinrichtung"@de ;
+.
+
+fdb:foerderberechtigte-existenzgruenderin
+    a skos:Concept ;
+    skos:inScheme fdb:foerderberechtigte ;
+    skos:notation "existenzgruenderin" ;
+    skos:prefLabel "Existenzgründer/in"@de ;
+.
+
+fdb:foerderberechtigte-forschungseinrichtung
+    a skos:Concept ;
+    skos:inScheme fdb:foerderberechtigte ;
+    skos:notation "forschungseinrichtung" ;
+    skos:prefLabel "Forschungseinrichtung"@de ;
+.
+
+fdb:foerderberechtigte-hochschule
+    a skos:Concept ;
+    skos:inScheme fdb:foerderberechtigte ;
+    skos:notation "hochschule" ;
+    skos:prefLabel "Hochschule"@de ;
+.
+
+fdb:foerderberechtigte-kommune
+    a skos:Concept ;
+    skos:inScheme fdb:foerderberechtigte ;
+    skos:notation "kommune" ;
+    skos:prefLabel "Kommune"@de ;
+.
+
+fdb:foerderberechtigte-oeffentliche_einrichtung
+    a skos:Concept ;
+    skos:inScheme fdb:foerderberechtigte ;
+    skos:notation "oeffentliche_einrichtung" ;
+    skos:prefLabel "Öffentliche Einrichtung"@de ;
+.
+
+fdb:foerderberechtigte-privatperson
+    a skos:Concept ;
+    skos:inScheme fdb:foerderberechtigte ;
+    skos:notation "privatperson" ;
+    skos:prefLabel "Privatperson"@de ;
+.
+
+fdb:foerderberechtigte-unternehmen
+    a skos:Concept ;
+    skos:inScheme fdb:foerderberechtigte ;
+    skos:notation "unternehmen" ;
+    skos:prefLabel "Unternehmen"@de ;
+.
+
+fdb:foerderberechtigte-verband_vereinigung
+    a skos:Concept ;
+    skos:inScheme fdb:foerderberechtigte ;
+    skos:notation "verband_vereinigung" ;
+    skos:prefLabel "Verband/Vereinigung"@de ;
+.
+
+fdb:foerderbereich-arbeit
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "arbeit" ;
+    skos:prefLabel "Arbeit"@de ;
+.
+
+fdb:foerderbereich-aus_weiterbildung
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "aus_weiterbildung" ;
+    skos:prefLabel "Aus- & Weiterbildung"@de ;
+.
+
+fdb:foerderbereich-aussenwirtschaft
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "aussenwirtschaft" ;
+    skos:prefLabel "Außenwirtschaft"@de ;
+.
+
+fdb:foerderbereich-beratung
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "beratung" ;
+    skos:prefLabel "Beratung"@de ;
+.
+
+fdb:foerderbereich-corona
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "corona" ;
+    skos:prefLabel "Corona-Hilfe"@de ;
+.
+
+fdb:foerderbereich-digitalisierung
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "digitalisierung" ;
+    skos:prefLabel "Digitalisierung"@de ;
+.
+
+fdb:foerderbereich-energieeffizienz_erneuerbare_energien
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "energieeffizienz_erneuerbare_energien" ;
+    skos:prefLabel "Energieeffizienz & Erneuerbare Energien"@de ;
+.
+
+fdb:foerderbereich-existenzgruendung_festigung
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "existenzgruendung_festigung" ;
+    skos:prefLabel "Existenzgründung & -festigung"@de ;
+.
+
+fdb:foerderbereich-forschung_innovation_themenoffen
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "forschung_innovation_themenoffen" ;
+    skos:prefLabel "Forschung & Innovation (themenoffen)"@de ;
+.
+
+fdb:foerderbereich-forschung_innovation_themenspezifisch
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "forschung_innovation_themenspezifisch" ;
+    skos:prefLabel "Forschung & Innovation (themenspezifisch)"@de ;
+.
+
+fdb:foerderbereich-frauenfoerderung
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "frauenfoerderung" ;
+    skos:prefLabel "Frauenförderung"@de ;
+.
+
+fdb:foerderbereich-gesundheit_soziales
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "gesundheit_soziales" ;
+    skos:prefLabel "Gesundheit & Soziales"@de ;
+.
+
+fdb:foerderbereich-infrastruktur
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "infrastruktur" ;
+    skos:prefLabel "Infrastruktur"@de ;
+.
+
+fdb:foerderbereich-kultur_medien_sport
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "kultur_medien_sport" ;
+    skos:prefLabel "Kultur, Medien & Sport"@de ;
+.
+
+fdb:foerderbereich-landwirtschaft_laendliche_entwicklung
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "landwirtschaft_laendliche_entwicklung" ;
+    skos:prefLabel "Landwirtschaft & Ländliche Entwicklung"@de ;
+.
+
+fdb:foerderbereich-messen_ausstellungen
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "messen_ausstellungen" ;
+    skos:prefLabel "Messen & Ausstellungen"@de ;
+.
+
+fdb:foerderbereich-mobilitaet
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "mobilitaet" ;
+    skos:prefLabel "Mobilität"@de ;
+.
+
+fdb:foerderbereich-regionalfoerderung
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "regionalfoerderung" ;
+    skos:prefLabel "Regionalförderung"@de ;
+.
+
+fdb:foerderbereich-smart_cities_regionen
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "smart_cities_regionen" ;
+    skos:prefLabel "Smart Cities & Regionen"@de ;
+.
+
+fdb:foerderbereich-staedtebau_stadterneuerung
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "staedtebau_stadterneuerung" ;
+    skos:prefLabel "Städtebau & Stadterneuerung"@de ;
+.
+
+fdb:foerderbereich-umwelt_naturschutz
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "umwelt_naturschutz" ;
+    skos:prefLabel "Umwelt- & Naturschutz"@de ;
+.
+
+fdb:foerderbereich-unternehmensfinanzierung
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "unternehmensfinanzierung" ;
+    skos:prefLabel "Unternehmensfinanzierung"@de ;
+.
+
+fdb:foerderbereich-wohnungsbau_modernisierung
+    a skos:Concept ;
+    skos:inScheme fdb:foerderbereich ;
+    skos:notation "wohnungsbau_modernisierung" ;
+    skos:prefLabel "Wohnungsbau & -modernisierung"@de ;
+.
+
+fdb:foerdergeber-bund
+    a skos:Concept ;
+    skos:inScheme fdb:foerdergeber ;
+    skos:notation "bund" ;
+    skos:prefLabel "Bund"@de ;
+.
+
+fdb:foerdergeber-eu
+    a skos:Concept ;
+    skos:inScheme fdb:foerdergeber ;
+    skos:notation "eu" ;
+    skos:prefLabel "EU"@de ;
+.
+
+fdb:foerdergeber-land
+    a skos:Concept ;
+    skos:inScheme fdb:foerdergeber ;
+    skos:notation "land" ;
+    skos:prefLabel "Land"@de ;
+.
+
+fdb:foerdergebiet-_bundesweit
+    a skos:Concept ;
+    skos:inScheme fdb:foerdergebiet ;
+    skos:notation "_bundesweit" ;
+    skos:prefLabel "bundesweit"@de ;
+.
+
+fdb:foerdergebiet-baden_wuerttemberg
+    a skos:Concept ;
+    skos:inScheme fdb:foerdergebiet ;
+    skos:notation "baden_wuerttemberg" ;
+    skos:prefLabel "Baden-Württemberg"@de ;
+.
+
+fdb:foerdergebiet-bayern
+    a skos:Concept ;
+    skos:inScheme fdb:foerdergebiet ;
+    skos:notation "bayern" ;
+    skos:prefLabel "Bayern"@de ;
+.
+
+fdb:foerdergebiet-berlin
+    a skos:Concept ;
+    skos:inScheme fdb:foerdergebiet ;
+    skos:notation "berlin" ;
+    skos:prefLabel "Berlin"@de ;
+.
+
+fdb:foerdergebiet-brandenburg
+    a skos:Concept ;
+    skos:inScheme fdb:foerdergebiet ;
+    skos:notation "brandenburg" ;
+    skos:prefLabel "Brandenburg"@de ;
+.
+
+fdb:foerdergebiet-bremen
+    a skos:Concept ;
+    skos:inScheme fdb:foerdergebiet ;
+    skos:notation "bremen" ;
+    skos:prefLabel "Bremen"@de ;
+.
+
+fdb:foerdergebiet-de_ni
+    a skos:Concept ;
+    skos:inScheme fdb:foerdergebiet ;
+    skos:notation "de_ni" ;
+    skos:prefLabel "Niedersachsen"@de ;
+.
+
+fdb:foerdergebiet-de_st
+    a skos:Concept ;
+    skos:inScheme fdb:foerdergebiet ;
+    skos:notation "de_st" ;
+    skos:prefLabel "Sachsen-Anhalt"@de ;
+.
+
+fdb:foerdergebiet-hamburg
+    a skos:Concept ;
+    skos:inScheme fdb:foerdergebiet ;
+    skos:notation "hamburg" ;
+    skos:prefLabel "Hamburg"@de ;
+.
+
+fdb:foerdergebiet-hessen
+    a skos:Concept ;
+    skos:inScheme fdb:foerdergebiet ;
+    skos:notation "hessen" ;
+    skos:prefLabel "Hessen"@de ;
+.
+
+fdb:foerdergebiet-mecklenburg_vorpommern
+    a skos:Concept ;
+    skos:inScheme fdb:foerdergebiet ;
+    skos:notation "mecklenburg_vorpommern" ;
+    skos:prefLabel "Mecklenburg-Vorpommern"@de ;
+.
+
+fdb:foerdergebiet-nordrhein_westfalen
+    a skos:Concept ;
+    skos:inScheme fdb:foerdergebiet ;
+    skos:notation "nordrhein_westfalen" ;
+    skos:prefLabel "Nordrhein-Westfalen"@de ;
+.
+
+fdb:foerdergebiet-rheinland_pfalz
+    a skos:Concept ;
+    skos:inScheme fdb:foerdergebiet ;
+    skos:notation "rheinland_pfalz" ;
+    skos:prefLabel "Rheinland-Pfalz"@de ;
+.
+
+fdb:foerdergebiet-saarland
+    a skos:Concept ;
+    skos:inScheme fdb:foerdergebiet ;
+    skos:notation "saarland" ;
+    skos:prefLabel "Saarland"@de ;
+.
+
+fdb:foerdergebiet-sachsen
+    a skos:Concept ;
+    skos:inScheme fdb:foerdergebiet ;
+    skos:notation "sachsen" ;
+    skos:prefLabel "Sachsen"@de ;
+.
+
+fdb:foerdergebiet-schlesig_holstein
+    a skos:Concept ;
+    skos:inScheme fdb:foerdergebiet ;
+    skos:notation "schlesig_holstein" ;
+    skos:prefLabel "Schleswig-Holstein"@de ;
+.
+
+fdb:foerdergebiet-sonstige
+    a skos:Concept ;
+    skos:inScheme fdb:foerdergebiet ;
+    skos:notation "sonstige" ;
+    skos:prefLabel "Sonstige"@de ;
+.
+
+fdb:foerdergebiet-thueringen
+    a skos:Concept ;
+    skos:inScheme fdb:foerdergebiet ;
+    skos:notation "thueringen" ;
+    skos:prefLabel "Thüringen"@de ;
+.
+
+fdb:grw-grw_foerderung
+    a skos:Concept ;
+    skos:inScheme fdb:grw ;
+    skos:notation "grw_foerderung" ;
+    skos:prefLabel "Nur GRW-Förderprogramme"@de ;
+.
+
+fdb:grw-keine_grw_foerderung
+    a skos:Concept ;
+    skos:inScheme fdb:grw ;
+    skos:notation "keine_grw_foerderung" ;
+    skos:prefLabel "Keine GRW-Förderprogramme"@de ;
+.
+
+fdb:unternehmensgroesse-grosses_unternehmen
+    a skos:Concept ;
+    skos:inScheme fdb:unternehmensgroesse ;
+    skos:notation "grosses_unternehmen" ;
+    skos:prefLabel "Großes Unternehmen"@de ;
+.
+
+fdb:unternehmensgroesse-kleines_unternehmen
+    a skos:Concept ;
+    skos:inScheme fdb:unternehmensgroesse ;
+    skos:notation "kleines_unternehmen" ;
+    skos:prefLabel "Kleines Unternehmen"@de ;
+.
+
+fdb:unternehmensgroesse-kleinstunternehmen
+    a skos:Concept ;
+    skos:inScheme fdb:unternehmensgroesse ;
+    skos:notation "kleinstunternehmen" ;
+    skos:prefLabel "Kleinstunternehmen"@de ;
+.
+
+fdb:unternehmensgroesse-mittleres_unternehmen
+    a skos:Concept ;
+    skos:inScheme fdb:unternehmensgroesse ;
+    skos:notation "mittleres_unternehmen" ;
+    skos:prefLabel "Mittleres Unternehmen"@de ;
+.
+
+fdb:grw
+    a
+        rdf:Property ,
+        skos:ConceptScheme ;
+    rdfs:label "grw" ;
+    dct:title "grw"@de ;
+    rdfs:comment "closed vocabulary, 2 codes; each code is a skos:Concept in https://fdb.cdl.correlaid.org/def/fdb#grw, which carries its label"@en ;
     rdfs:domain fdb:Foerderprogramm ;
     rdfs:isDefinedBy <https://fdb.cdl.correlaid.org/def/fdb> ;
     rdfs:range xsd:string ;
+    skos:hasTopConcept
+        fdb:grw-grw_foerderung ,
+        fdb:grw-keine_grw_foerderung ;
     fdb:origin "upstream" ;
+.
+
+fdb:foerdergeber
+    a skos:ConceptScheme ;
+    dct:title "foerdergeber"@de ;
+    rdfs:isDefinedBy <https://fdb.cdl.correlaid.org/def/fdb> ;
+    skos:hasTopConcept
+        fdb:foerdergeber-bund ,
+        fdb:foerdergeber-eu ,
+        fdb:foerdergeber-land ;
+.
+
+fdb:unternehmensgroesse
+    a
+        rdf:Property ,
+        skos:ConceptScheme ;
+    rdfs:label "unternehmensgroesse" ;
+    dct:title "unternehmensgroesse"@de ;
+    rdfs:comment "closed vocabulary, 4 codes; each code is a skos:Concept in https://fdb.cdl.correlaid.org/def/fdb#unternehmensgroesse, which carries its label"@en ;
+    rdfs:domain fdb:Foerderprogramm ;
+    rdfs:isDefinedBy <https://fdb.cdl.correlaid.org/def/fdb> ;
+    rdfs:range xsd:string ;
+    skos:hasTopConcept
+        fdb:unternehmensgroesse-grosses_unternehmen ,
+        fdb:unternehmensgroesse-kleines_unternehmen ,
+        fdb:unternehmensgroesse-kleinstunternehmen ,
+        fdb:unternehmensgroesse-mittleres_unternehmen ;
+    fdb:origin "upstream" ;
+.
+
+fdb:foerderart
+    a skos:ConceptScheme ;
+    dct:title "foerderart"@de ;
+    rdfs:isDefinedBy <https://fdb.cdl.correlaid.org/def/fdb> ;
+    skos:hasTopConcept
+        fdb:foerderart-beteiligung ,
+        fdb:foerderart-buergschaft ,
+        fdb:foerderart-darlehen ,
+        fdb:foerderart-garantie ,
+        fdb:foerderart-sonstige ,
+        fdb:foerderart-zuschuss ;
+.
+
+fdb:foerderberechtigte
+    a skos:ConceptScheme ;
+    dct:title "foerderberechtigte"@de ;
+    rdfs:isDefinedBy <https://fdb.cdl.correlaid.org/def/fdb> ;
+    skos:hasTopConcept
+        fdb:foerderberechtigte-bildungseinrichtung ,
+        fdb:foerderberechtigte-existenzgruenderin ,
+        fdb:foerderberechtigte-forschungseinrichtung ,
+        fdb:foerderberechtigte-hochschule ,
+        fdb:foerderberechtigte-kommune ,
+        fdb:foerderberechtigte-oeffentliche_einrichtung ,
+        fdb:foerderberechtigte-privatperson ,
+        fdb:foerderberechtigte-unternehmen ,
+        fdb:foerderberechtigte-verband_vereinigung ;
+.
+
+fdb:foerdergebiet
+    a skos:ConceptScheme ;
+    dct:title "foerdergebiet"@de ;
+    rdfs:isDefinedBy <https://fdb.cdl.correlaid.org/def/fdb> ;
+    skos:hasTopConcept
+        fdb:foerdergebiet-_bundesweit ,
+        fdb:foerdergebiet-baden_wuerttemberg ,
+        fdb:foerdergebiet-bayern ,
+        fdb:foerdergebiet-berlin ,
+        fdb:foerdergebiet-brandenburg ,
+        fdb:foerdergebiet-bremen ,
+        fdb:foerdergebiet-de_ni ,
+        fdb:foerdergebiet-de_st ,
+        fdb:foerdergebiet-hamburg ,
+        fdb:foerdergebiet-hessen ,
+        fdb:foerdergebiet-mecklenburg_vorpommern ,
+        fdb:foerdergebiet-nordrhein_westfalen ,
+        fdb:foerdergebiet-rheinland_pfalz ,
+        fdb:foerdergebiet-saarland ,
+        fdb:foerdergebiet-sachsen ,
+        fdb:foerdergebiet-schlesig_holstein ,
+        fdb:foerdergebiet-sonstige ,
+        fdb:foerdergebiet-thueringen ;
+.
+
+fdb:foerderbereich
+    a skos:ConceptScheme ;
+    dct:title "foerderbereich"@de ;
+    rdfs:isDefinedBy <https://fdb.cdl.correlaid.org/def/fdb> ;
+    skos:hasTopConcept
+        fdb:foerderbereich-arbeit ,
+        fdb:foerderbereich-aus_weiterbildung ,
+        fdb:foerderbereich-aussenwirtschaft ,
+        fdb:foerderbereich-beratung ,
+        fdb:foerderbereich-corona ,
+        fdb:foerderbereich-digitalisierung ,
+        fdb:foerderbereich-energieeffizienz_erneuerbare_energien ,
+        fdb:foerderbereich-existenzgruendung_festigung ,
+        fdb:foerderbereich-forschung_innovation_themenoffen ,
+        fdb:foerderbereich-forschung_innovation_themenspezifisch ,
+        fdb:foerderbereich-frauenfoerderung ,
+        fdb:foerderbereich-gesundheit_soziales ,
+        fdb:foerderbereich-infrastruktur ,
+        fdb:foerderbereich-kultur_medien_sport ,
+        fdb:foerderbereich-landwirtschaft_laendliche_entwicklung ,
+        fdb:foerderbereich-messen_ausstellungen ,
+        fdb:foerderbereich-mobilitaet ,
+        fdb:foerderbereich-regionalfoerderung ,
+        fdb:foerderbereich-smart_cities_regionen ,
+        fdb:foerderbereich-staedtebau_stadterneuerung ,
+        fdb:foerderbereich-umwelt_naturschutz ,
+        fdb:foerderbereich-unternehmensfinanzierung ,
+        fdb:foerderbereich-wohnungsbau_modernisierung ;
 .
 
 <https://fdb.cdl.correlaid.org/def/fdb>

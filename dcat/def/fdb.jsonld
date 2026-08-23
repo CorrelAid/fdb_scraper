@@ -364,7 +364,7 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "closed vocabulary, 9 codes; labels in fdb_scraper.generated.vocab.FOERDERBERECHTIGTE"
+        "@value": "closed vocabulary, 9 codes; each code is a skos:Concept in https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte, which carries its label"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
@@ -431,6 +431,1576 @@
     ]
   },
   {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "de",
+        "@value": "foerderart"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart-beteiligung"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart-buergschaft"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart-darlehen"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart-garantie"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart-sonstige"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart-zuschuss"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart-beteiligung",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "beteiligung"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Beteiligung"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart-buergschaft",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "buergschaft"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Bürgschaft"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart-darlehen",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "darlehen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Darlehen"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart-garantie",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "garantie"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Garantie"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart-sonstige",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "sonstige"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Sonstige"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart-zuschuss",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderart"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "zuschuss"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Zuschuss"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "de",
+        "@value": "foerderberechtigte"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte-bildungseinrichtung"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte-existenzgruenderin"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte-forschungseinrichtung"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte-hochschule"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte-kommune"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte-oeffentliche_einrichtung"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte-privatperson"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte-unternehmen"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte-verband_vereinigung"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte-bildungseinrichtung",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "bildungseinrichtung"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Bildungseinrichtung"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte-existenzgruenderin",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "existenzgruenderin"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Existenzgründer/in"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte-forschungseinrichtung",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "forschungseinrichtung"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Forschungseinrichtung"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte-hochschule",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "hochschule"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Hochschule"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte-kommune",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "kommune"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Kommune"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte-oeffentliche_einrichtung",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "oeffentliche_einrichtung"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Öffentliche Einrichtung"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte-privatperson",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "privatperson"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Privatperson"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte-unternehmen",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "unternehmen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Unternehmen"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte-verband_vereinigung",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderberechtigte"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "verband_vereinigung"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Verband/Vereinigung"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "de",
+        "@value": "foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-arbeit"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-aus_weiterbildung"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-aussenwirtschaft"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-beratung"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-corona"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-digitalisierung"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-energieeffizienz_erneuerbare_energien"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-existenzgruendung_festigung"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-forschung_innovation_themenoffen"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-forschung_innovation_themenspezifisch"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-frauenfoerderung"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-gesundheit_soziales"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-infrastruktur"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-kultur_medien_sport"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-landwirtschaft_laendliche_entwicklung"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-messen_ausstellungen"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-mobilitaet"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-regionalfoerderung"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-smart_cities_regionen"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-staedtebau_stadterneuerung"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-umwelt_naturschutz"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-unternehmensfinanzierung"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-wohnungsbau_modernisierung"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-arbeit",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "arbeit"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Arbeit"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-aus_weiterbildung",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "aus_weiterbildung"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Aus- & Weiterbildung"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-aussenwirtschaft",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "aussenwirtschaft"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Außenwirtschaft"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-beratung",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "beratung"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Beratung"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-corona",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "corona"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Corona-Hilfe"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-digitalisierung",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "digitalisierung"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Digitalisierung"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-energieeffizienz_erneuerbare_energien",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "energieeffizienz_erneuerbare_energien"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Energieeffizienz & Erneuerbare Energien"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-existenzgruendung_festigung",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "existenzgruendung_festigung"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Existenzgründung & -festigung"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-forschung_innovation_themenoffen",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "forschung_innovation_themenoffen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Forschung & Innovation (themenoffen)"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-forschung_innovation_themenspezifisch",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "forschung_innovation_themenspezifisch"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Forschung & Innovation (themenspezifisch)"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-frauenfoerderung",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "frauenfoerderung"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Frauenförderung"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-gesundheit_soziales",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "gesundheit_soziales"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Gesundheit & Soziales"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-infrastruktur",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "infrastruktur"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Infrastruktur"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-kultur_medien_sport",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "kultur_medien_sport"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Kultur, Medien & Sport"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-landwirtschaft_laendliche_entwicklung",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "landwirtschaft_laendliche_entwicklung"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Landwirtschaft & Ländliche Entwicklung"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-messen_ausstellungen",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "messen_ausstellungen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Messen & Ausstellungen"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-mobilitaet",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "mobilitaet"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Mobilität"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-regionalfoerderung",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "regionalfoerderung"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Regionalförderung"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-smart_cities_regionen",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "smart_cities_regionen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Smart Cities & Regionen"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-staedtebau_stadterneuerung",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "staedtebau_stadterneuerung"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Städtebau & Stadterneuerung"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-umwelt_naturschutz",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "umwelt_naturschutz"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Umwelt- & Naturschutz"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-unternehmensfinanzierung",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "unternehmensfinanzierung"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Unternehmensfinanzierung"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich-wohnungsbau_modernisierung",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerderbereich"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "wohnungsbau_modernisierung"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Wohnungsbau & -modernisierung"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergeber",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "de",
+        "@value": "foerdergeber"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergeber-bund"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergeber-eu"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergeber-land"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergeber-bund",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergeber"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "bund"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Bund"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergeber-eu",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergeber"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "eu"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "EU"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergeber-land",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergeber"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "land"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Land"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "de",
+        "@value": "foerdergebiet"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-_bundesweit"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-baden_wuerttemberg"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-bayern"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-berlin"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-brandenburg"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-bremen"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-de_ni"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-de_st"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-hamburg"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-hessen"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-mecklenburg_vorpommern"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-nordrhein_westfalen"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-rheinland_pfalz"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-saarland"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-sachsen"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-schlesig_holstein"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-sonstige"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-thueringen"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-_bundesweit",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "_bundesweit"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "bundesweit"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-baden_wuerttemberg",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "baden_wuerttemberg"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Baden-Württemberg"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-bayern",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "bayern"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Bayern"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-berlin",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "berlin"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Berlin"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-brandenburg",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "brandenburg"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Brandenburg"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-bremen",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "bremen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Bremen"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-de_ni",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "de_ni"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Niedersachsen"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-de_st",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "de_st"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Sachsen-Anhalt"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-hamburg",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "hamburg"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Hamburg"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-hessen",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "hessen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Hessen"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-mecklenburg_vorpommern",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "mecklenburg_vorpommern"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Mecklenburg-Vorpommern"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-nordrhein_westfalen",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "nordrhein_westfalen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Nordrhein-Westfalen"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-rheinland_pfalz",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "rheinland_pfalz"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Rheinland-Pfalz"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-saarland",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "saarland"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Saarland"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-sachsen",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "sachsen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Sachsen"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-schlesig_holstein",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "schlesig_holstein"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Schleswig-Holstein"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-sonstige",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "sonstige"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Sonstige"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet-thueringen",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#foerdergebiet"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "thueringen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Thüringen"
+      }
+    ]
+  },
+  {
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#fundingArea",
     "@type": [
       "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
@@ -438,7 +2008,7 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "closed vocabulary, 23 codes; labels in fdb_scraper.generated.vocab.FOERDERBEREICH"
+        "@value": "closed vocabulary, 23 codes; each code is a skos:Concept in https://fdb.cdl.correlaid.org/def/fdb#foerderbereich, which carries its label"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
@@ -475,7 +2045,7 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "closed vocabulary, 3 codes; labels in fdb_scraper.generated.vocab.FOERDERGEBER"
+        "@value": "closed vocabulary, 3 codes; each code is a skos:Concept in https://fdb.cdl.correlaid.org/def/fdb#foerdergeber, which carries its label"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
@@ -580,7 +2150,7 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "closed vocabulary, 6 codes; labels in fdb_scraper.generated.vocab.FOERDERART"
+        "@value": "closed vocabulary, 6 codes; each code is a skos:Concept in https://fdb.cdl.correlaid.org/def/fdb#foerderart, which carries its label"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
@@ -612,12 +2182,19 @@
   {
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#grw",
     "@type": [
-      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "de",
+        "@value": "grw"
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "closed vocabulary, 2 codes; labels in fdb_scraper.generated.vocab.GRW"
+        "@value": "closed vocabulary, 2 codes; each code is a skos:Concept in https://fdb.cdl.correlaid.org/def/fdb#grw, which carries its label"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
@@ -640,9 +2217,61 @@
         "@id": "http://www.w3.org/2001/XMLSchema#string"
       }
     ],
+    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#grw-grw_foerderung"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#grw-keine_grw_foerderung"
+      }
+    ],
     "https://fdb.cdl.correlaid.org/def/fdb#origin": [
       {
         "@value": "upstream"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#grw-grw_foerderung",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#grw"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "grw_foerderung"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Nur GRW-Förderprogramme"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#grw-keine_grw_foerderung",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#grw"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "keine_grw_foerderung"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Keine GRW-Förderprogramme"
       }
     ]
   },
@@ -1146,12 +2775,19 @@
   {
     "@id": "https://fdb.cdl.correlaid.org/def/fdb#unternehmensgroesse",
     "@type": [
-      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "de",
+        "@value": "unternehmensgroesse"
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "closed vocabulary, 4 codes; labels in fdb_scraper.generated.vocab.UNTERNEHMENSGROESSE"
+        "@value": "closed vocabulary, 4 codes; each code is a skos:Concept in https://fdb.cdl.correlaid.org/def/fdb#unternehmensgroesse, which carries its label"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
@@ -1174,9 +2810,111 @@
         "@id": "http://www.w3.org/2001/XMLSchema#string"
       }
     ],
+    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#unternehmensgroesse-grosses_unternehmen"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#unternehmensgroesse-kleines_unternehmen"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#unternehmensgroesse-kleinstunternehmen"
+      },
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#unternehmensgroesse-mittleres_unternehmen"
+      }
+    ],
     "https://fdb.cdl.correlaid.org/def/fdb#origin": [
       {
         "@value": "upstream"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#unternehmensgroesse-grosses_unternehmen",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#unternehmensgroesse"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "grosses_unternehmen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Großes Unternehmen"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#unternehmensgroesse-kleines_unternehmen",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#unternehmensgroesse"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "kleines_unternehmen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Kleines Unternehmen"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#unternehmensgroesse-kleinstunternehmen",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#unternehmensgroesse"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "kleinstunternehmen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Kleinstunternehmen"
+      }
+    ]
+  },
+  {
+    "@id": "https://fdb.cdl.correlaid.org/def/fdb#unternehmensgroesse-mittleres_unternehmen",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://fdb.cdl.correlaid.org/def/fdb#unternehmensgroesse"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "mittleres_unternehmen"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Mittleres Unternehmen"
       }
     ]
   }

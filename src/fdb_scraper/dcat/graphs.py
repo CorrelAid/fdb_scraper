@@ -29,7 +29,6 @@ from fdb_scraper.dcat.columns import (
 )
 from fdb_scraper.config import (
     AUTHORITY_CODES,
-    BASE,
     DATASET,
     DATASET_ID,
     DATASET_TITLE,
@@ -97,8 +96,11 @@ def build_dataset(modified: datetime, sizes: dict[str, int]) -> Graph:
     g.bind("vcard", VCARD, override=True)
 
     dataset = URIRef(DATASET)
-    correlaid = URIRef(f"{BASE}agent/correlaid")
-    contact = URIRef(f"{BASE}agent/correlaid#contact")
+    correlaid = URIRef(PUBLISHER["uri"])
+    # The contact point is this dataset's, not the organisation's, so it hangs
+    # off the dataset URI: the fragment dereferences to the document that
+    # describes it, which no agent URI minted under BASE would.
+    contact = URIRef(f"{DATASET}#contact")
 
     g.add((correlaid, RDF.type, FOAF.Agent))
     g.add((correlaid, FOAF.name, Literal(PUBLISHER["name"], lang="de")))
@@ -221,7 +223,7 @@ def build_vocabulary(modified: datetime) -> Graph:
     g.add((ontology, RDF.type, OWL.Ontology))
     g.add((ontology, DCT["title"], Literal(ONTOLOGY_TITLE_DE, lang="de")))
     g.add((ontology, DCT.description, Literal(ONTOLOGY_DESCRIPTION_DE, lang="de")))
-    g.add((ontology, DCT.publisher, URIRef(f"{BASE}agent/correlaid")))
+    g.add((ontology, DCT.publisher, URIRef(PUBLISHER["uri"])))
     g.add((ontology, DCT.modified, Literal(modified.date(), datatype=XSD.date)))
     g.add((ontology, DCT.source, URIRef(SOURCE_HOMEPAGE)))
     g.add((ontology, RDFS.seeAlso, URIRef(DATASET)))

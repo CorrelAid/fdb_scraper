@@ -248,7 +248,15 @@ def _de(value: float) -> str:
 
 # --- Who publishes this ------------------------------------------------------
 
+# The organisation is identified by the URI its own website publishes -- the
+# schema.org node at https://correlaid.org/#organization -- rather than by an
+# agent URI minted here. One identifier for CorrelAid across every dataset it
+# publishes, dereferenceable at the source, and nothing for this deployment to
+# serve. The properties below are still asserted in our documents because a
+# harvester reads one graph and does not follow the URI (see
+# test_the_dataset_document_is_self_contained).
 PUBLISHER = {
+    "uri": "https://correlaid.org/#organization",
     "name": "CorrelAid e.V.",
     "homepage": "https://correlaid.org/",
     "email": "mailto:info@correlaid.org",

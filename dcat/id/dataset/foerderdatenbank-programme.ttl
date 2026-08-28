@@ -16,7 +16,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
     dct:accrualPeriodicity <http://publications.europa.eu/resource/authority/frequency/WEEKLY> ;
     dct:conformsTo <https://fdb.cdl.correlaid.org/table-schema.json> ;
-    dct:creator <https://fdb.cdl.correlaid.org/id/agent/correlaid> ;
+    dct:creator <https://correlaid.org/#organization> ;
     dct:description
         """Alle Förderprogramme der Förderdatenbank des Bundes (Bund, Länder und EU), ein Datensatz pro Programm mit 52 Feldern.
 
@@ -41,12 +41,12 @@ This history is observed weekly and stated as an ISO week (e.g. 2026-W34). A run
 One column is model-produced and not part of the source: ``keywords_extracted`` holds the keywords a finetuned language model reads out of the raw ``keywords`` column. Upstream they are joined with spaces and carry no separator at all in 87.7% of cases. Every keyword is verifiably a contiguous span of the original string, checked on every publish; where the boundaries fall is the model's judgement (F1 0.967 on a hand-labelled sample). ``keywords`` is published unchanged beside it. The table schema marks every column with ``fdb:origin`` as ``upstream``, ``derived`` or ``inferred``."""@en ;
     dct:identifier "foerderdatenbank-programme" ;
     dct:language <http://publications.europa.eu/resource/authority/language/DEU> ;
-    dct:modified "2026-08-23T00:00:00+00:00"^^xsd:dateTime ;
-    dct:publisher <https://fdb.cdl.correlaid.org/id/agent/correlaid> ;
+    dct:modified "2026-08-28T00:00:00+00:00"^^xsd:dateTime ;
+    dct:publisher <https://correlaid.org/#organization> ;
     dct:title
         "Förderprogramme aus der Förderdatenbank des Bundes"@de ,
         "Funding Programmes from the German funding database"@en ;
-    dcat:contactPoint <https://fdb.cdl.correlaid.org/id/agent/correlaid#contact> ;
+    dcat:contactPoint <https://fdb.cdl.correlaid.org/id/dataset/foerderdatenbank-programme#contact> ;
     dcat:distribution <https://fdb.cdl.correlaid.org/id/dataset/foerderdatenbank-programme/distribution/csv> ;
     dcat:keyword
         "Förderdatenbank"@de ,
@@ -61,7 +61,7 @@ One column is model-produced and not part of the source: ``keywords_extracted`` 
     foaf:page <https://www.foerderdatenbank.de/> ;
 .
 
-<https://fdb.cdl.correlaid.org/id/agent/correlaid#contact>
+<https://fdb.cdl.correlaid.org/id/dataset/foerderdatenbank-programme#contact>
     a
         vcard:Kind ,
         vcard:Organization ;
@@ -78,7 +78,7 @@ One column is model-produced and not part of the source: ``keywords_extracted`` 
     dct:description "Die vollständige Tabelle mit historischen Einträgen. Das verlinkte Tabellenschema beschreibt Datentypen, Pflichtfelder und Muster; Spalten mit Listenwerten enthalten JSON-Arrays als Zellenwert."@de ;
     dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
     dct:license <http://dcat-ap.de/def/licenses/cc-by-nd/4.0> ;
-    dct:modified "2026-08-23T00:00:00+00:00"^^xsd:dateTime ;
+    dct:modified "2026-08-28T00:00:00+00:00"^^xsd:dateTime ;
     dct:title "Förderprogramme als CSV-Datei"@de ;
     dcat:accessURL <https://fdb.cdl.correlaid.org/data/programme.csv> ;
     dcat:downloadURL <https://fdb.cdl.correlaid.org/data/programme.csv> ;
@@ -89,7 +89,7 @@ One column is model-produced and not part of the source: ``keywords_extracted`` 
     a foaf:Document ;
 .
 
-<https://fdb.cdl.correlaid.org/id/agent/correlaid>
+<https://correlaid.org/#organization>
     a foaf:Agent ;
     foaf:homepage <https://correlaid.org/> ;
     foaf:mbox <mailto:info@correlaid.org> ;

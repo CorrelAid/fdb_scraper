@@ -981,8 +981,8 @@ fdb:foerderbereich
 <https://fdb.cdl.correlaid.org/def/fdb>
     a owl:Ontology ;
     dct:description "Begriffe für die Spalten der Förderprogramm-Tabelle, für die kein etablierter Begriff passt."@de ;
-    dct:modified "2026-08-23"^^xsd:date ;
-    dct:publisher <https://fdb.cdl.correlaid.org/id/agent/correlaid> ;
+    dct:modified "2026-08-28"^^xsd:date ;
+    dct:publisher <https://correlaid.org/#organization> ;
     dct:source <https://www.foerderdatenbank.de/> ;
     dct:title "Förderdatenbank -- minted Begriffe"@de ;
     rdfs:seeAlso <https://fdb.cdl.correlaid.org/id/dataset/foerderdatenbank-programme> ;

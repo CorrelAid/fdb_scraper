@@ -22,7 +22,7 @@ from rdflib import Graph, Literal, URIRef
 from rdflib.namespace import RDF, RDFS, SKOS
 
 from fdb_scraper.config import DATASET, VOCAB
-from fdb_scraper.dcat.profile import DCAT, DCATAPDE, DCT, FDB, FOAF, PROV
+from fdb_scraper.dcat.profile import DCAT, DCATAPDE, DCT, FDB, FOAF, PROV, VCARD
 
 _HTML_HEAD = """\
 <!DOCTYPE html>
@@ -336,8 +336,12 @@ def render_index_html(graph: Graph) -> str:
     # to -- if a triple is dropped upstream, the row disappears with it.
     publisher = next(graph.objects(dataset, DCT.publisher), None)
     pub_name = _lit(graph, publisher, FOAF.name) if publisher else None
-    pub_home = _iri(graph, publisher, FOAF.homepage) if publisher else None
-    pub_mbox = _iri(graph, publisher, FOAF.mbox) if publisher else None
+    # The publisher IRI is the organisation's own dereferenceable identifier, so
+    # it is what the name links to; the address comes off the contact vCard,
+    # which is where this document states one.
+    pub_home = str(publisher) if publisher else None
+    contact = next(graph.objects(dataset, DCAT.contactPoint), None)
+    pub_mbox = _iri(graph, contact, VCARD.hasEmail) if contact else None
     source = _iri(graph, dataset, FOAF.page)
     derived = _iri(graph, dataset, PROV.wasDerivedFrom)
     frequency = _iri(graph, dataset, DCT.accrualPeriodicity)

@@ -338,6 +338,15 @@ def test_correlaid_is_identified_by_the_uri_its_own_website_publishes(
     ]
     assert not minted_agents, f"an agent minted here: {minted_agents}"
 
+    # A harvester does not dereference, so the name has to travel in this
+    # document. Everything else about the organisation is stated at the IRI, and
+    # a copy here would be a second version of it to go stale.
+    said = set(published.predicate_objects(organization))
+    assert said == {
+        (RDF.type, FOAF.Agent),
+        (FOAF.name, Literal("CorrelAid e.V.", lang="de")),
+    }, f"more than a label is restated about the organisation: {said}"
+
 
 def test_no_catalogue_is_published(published: Graph) -> None:
     """The catalogue is a separate deployment's to publish, not this one's.

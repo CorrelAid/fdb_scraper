@@ -102,10 +102,11 @@ def build_dataset(modified: datetime, sizes: dict[str, int]) -> Graph:
     # describes it, which no agent URI minted under BASE would.
     contact = URIRef(f"{DATASET}#contact")
 
+    # Name only. A harvester needs a label to show, so that much has to travel
+    # in this document, but homepage and mailbox are stated authoritatively at
+    # the IRI itself -- copied here they would be a second version to go stale.
     g.add((correlaid, RDF.type, FOAF.Agent))
     g.add((correlaid, FOAF.name, Literal(PUBLISHER["name"], lang="de")))
-    g.add((correlaid, FOAF.homepage, URIRef(PUBLISHER["homepage"])))
-    g.add((correlaid, FOAF.mbox, URIRef(PUBLISHER["email"])))
 
     # DCAT-AP requires a vcard:Kind. Organization is a subclass of it, but the
     # shapes check the asserted type, so state both rather than rely on a

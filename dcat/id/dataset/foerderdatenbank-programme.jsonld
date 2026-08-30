@@ -17,6 +17,23 @@
     ]
   },
   {
+    "@id": "https://correlaid.org/#organization",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Agent"
+    ],
+    "http://www.w3.org/2002/07/owl#sameAs": [
+      {
+        "@id": "http://www.wikidata.org/entity/Q131764066"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@language": "de",
+        "@value": "CorrelAid e.V."
+      }
+    ]
+  },
+  {
     "@id": "https://fdb.cdl.correlaid.org/id/dataset/foerderdatenbank-programme",
     "@type": [
       "http://www.w3.org/ns/dcat#Dataset"
@@ -51,7 +68,7 @@
     ],
     "http://purl.org/dc/terms/creator": [
       {
-        "@id": "https://civic-data.de/#organization"
+        "@id": "https://correlaid.org/#organization"
       }
     ],
     "http://purl.org/dc/terms/description": [

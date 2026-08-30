@@ -17,7 +17,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
     dct:accrualPeriodicity <http://publications.europa.eu/resource/authority/frequency/WEEKLY> ;
     dct:conformsTo <https://fdb.cdl.correlaid.org/table-schema.json> ;
-    dct:creator <https://civic-data.de/#organization> ;
+    dct:creator <https://correlaid.org/#organization> ;
     dct:description
         """Alle Förderprogramme der Förderdatenbank des Bundes (Bund, Länder und EU), ein Datensatz pro Programm mit 52 Feldern.
 
@@ -62,6 +62,18 @@ One column is model-produced and not part of the source: ``keywords_extracted`` 
     foaf:page <https://www.foerderdatenbank.de/> ;
 .
 
+<https://civic-data.de/#organization>
+    a foaf:Agent ;
+    owl:sameAs <http://www.wikidata.org/entity/Q136186131> ;
+    foaf:name "Civic Data Lab"@de ;
+.
+
+<https://correlaid.org/#organization>
+    a foaf:Agent ;
+    owl:sameAs <http://www.wikidata.org/entity/Q131764066> ;
+    foaf:name "CorrelAid e.V."@de ;
+.
+
 <https://fdb.cdl.correlaid.org/id/dataset/foerderdatenbank-programme#contact>
     a
         vcard:Kind ,
@@ -88,10 +100,4 @@ One column is model-produced and not part of the source: ``keywords_extracted`` 
 
 <https://www.foerderdatenbank.de/>
     a foaf:Document ;
-.
-
-<https://civic-data.de/#organization>
-    a foaf:Agent ;
-    owl:sameAs <http://www.wikidata.org/entity/Q136186131> ;
-    foaf:name "Civic Data Lab"@de ;
 .

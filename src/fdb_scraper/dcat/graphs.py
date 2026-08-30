@@ -29,6 +29,7 @@ from fdb_scraper.dcat.columns import (
 )
 from fdb_scraper.config import (
     AUTHORITY_CODES,
+    CREATOR,
     DATASET,
     DATASET_ID,
     DATASET_TITLE,
@@ -98,18 +99,21 @@ def build_dataset(modified: datetime, sizes: dict[str, int]) -> Graph:
 
     dataset = URIRef(DATASET)
     publisher = URIRef(PUBLISHER["uri"])
+    creator = URIRef(CREATOR["uri"])
     # The contact point is this dataset's, not the organisation's, so it hangs
     # off the dataset URI: the fragment dereferences to the document that
     # describes it, which no agent URI minted under BASE would.
     contact = URIRef(f"{DATASET}#contact")
 
-    # Name and Wikidata item only. A harvester needs a label to show, and the
-    # sameAs is what lets a catalogue holding the Wikidata identifier see that
-    # this is the same body; homepage and mailbox are stated authoritatively at
-    # the IRI itself -- copied here they would be a second version to go stale.
-    g.add((publisher, RDF.type, FOAF.Agent))
-    g.add((publisher, FOAF.name, Literal(PUBLISHER["name"], lang="de")))
-    g.add((publisher, OWL.sameAs, URIRef(PUBLISHER["wikidata"])))
+    # Name and Wikidata item only, for each of the two. A harvester needs a label
+    # to show, and the sameAs is what lets a catalogue holding the Wikidata
+    # identifier see that this is the same body; homepage and mailbox are stated
+    # authoritatively at the IRI itself -- copied here they would be a second
+    # version to go stale.
+    for agent, who in ((publisher, PUBLISHER), (creator, CREATOR)):
+        g.add((agent, RDF.type, FOAF.Agent))
+        g.add((agent, FOAF.name, Literal(who["name"], lang="de")))
+        g.add((agent, OWL.sameAs, URIRef(who["wikidata"])))
 
     # DCAT-AP requires a vcard:Kind. Organization is a subclass of it, but the
     # shapes check the asserted type, so state both rather than rely on a
@@ -132,8 +136,10 @@ def build_dataset(modified: datetime, sizes: dict[str, int]) -> Graph:
             DCT.description,
             Literal(text.format(fields=len(PUBLISHED_FIELDS)), lang=lang),
         ))
+    # Two roles, two bodies: the lab publishes the dataset, the association built
+    # and runs the pipeline behind it.
     g.add((dataset, DCT.publisher, publisher))
-    g.add((dataset, DCT.creator, publisher))
+    g.add((dataset, DCT.creator, creator))
     g.add((dataset, DCAT.contactPoint, contact))
     g.add((dataset, DCT.language, authority("language", AUTHORITY_CODES["language"])))
     g.add((

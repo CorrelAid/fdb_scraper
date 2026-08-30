@@ -246,23 +246,30 @@ def _de(value: float) -> str:
     return f"{value}".replace(".", ",")
 
 
-# --- Who publishes this ------------------------------------------------------
+# --- Who publishes this, and who made it -------------------------------------
 
-# The Civic Data Lab publishes this dataset, and is identified by the URI its
-# own website publishes -- the schema.org node at
-# https://civic-data.de/#organization -- rather than by an agent URI minted
-# here. One identifier across every dataset it publishes, dereferenceable at the
-# source, and nothing for this deployment to serve. The label below is still
+# Two bodies, two roles. The Civic Data Lab publishes the dataset; CorrelAid
+# e.V. builds and runs the pipeline that produces it, which is what dct:creator
+# says. Each is identified by the URI its own website publishes -- the
+# schema.org node on that site -- rather than by an agent URI minted here: one
+# identifier per body across every dataset either publishes, dereferenceable at
+# the source, and nothing for this deployment to serve. The labels are still
 # asserted in our documents because a harvester reads one graph and does not
-# follow the URI (see test_the_dataset_document_is_self_contained); the
-# Wikidata item is stated beside it so a consumer holding either identifier can
-# tell they name one body.
+# follow the URI (see test_the_dataset_document_is_self_contained); the Wikidata
+# item is stated beside each so a consumer holding either identifier can tell
+# they name one body.
 PUBLISHER = {
     "uri": "https://civic-data.de/#organization",
     "name": "Civic Data Lab",
     "homepage": "https://civic-data.de/",
     "email": "mailto:mail@civic-data.de",
     "wikidata": "http://www.wikidata.org/entity/Q136186131",
+}
+
+CREATOR = {
+    "uri": "https://correlaid.org/#organization",
+    "name": "CorrelAid e.V.",
+    "wikidata": "http://www.wikidata.org/entity/Q131764066",
 }
 
 # Where a reader goes to see how this dataset is built.

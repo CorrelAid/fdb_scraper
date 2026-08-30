@@ -94,19 +94,22 @@ def build_dataset(modified: datetime, sizes: dict[str, int]) -> Graph:
     for prefix, uri in NAMESPACES.items():
         g.bind(prefix, Namespace(uri))
     g.bind("vcard", VCARD, override=True)
+    g.bind("owl", OWL)
 
     dataset = URIRef(DATASET)
-    correlaid = URIRef(PUBLISHER["uri"])
+    publisher = URIRef(PUBLISHER["uri"])
     # The contact point is this dataset's, not the organisation's, so it hangs
     # off the dataset URI: the fragment dereferences to the document that
     # describes it, which no agent URI minted under BASE would.
     contact = URIRef(f"{DATASET}#contact")
 
-    # Name only. A harvester needs a label to show, so that much has to travel
-    # in this document, but homepage and mailbox are stated authoritatively at
+    # Name and Wikidata item only. A harvester needs a label to show, and the
+    # sameAs is what lets a catalogue holding the Wikidata identifier see that
+    # this is the same body; homepage and mailbox are stated authoritatively at
     # the IRI itself -- copied here they would be a second version to go stale.
-    g.add((correlaid, RDF.type, FOAF.Agent))
-    g.add((correlaid, FOAF.name, Literal(PUBLISHER["name"], lang="de")))
+    g.add((publisher, RDF.type, FOAF.Agent))
+    g.add((publisher, FOAF.name, Literal(PUBLISHER["name"], lang="de")))
+    g.add((publisher, OWL.sameAs, URIRef(PUBLISHER["wikidata"])))
 
     # DCAT-AP requires a vcard:Kind. Organization is a subclass of it, but the
     # shapes check the asserted type, so state both rather than rely on a
@@ -129,8 +132,8 @@ def build_dataset(modified: datetime, sizes: dict[str, int]) -> Graph:
             DCT.description,
             Literal(text.format(fields=len(PUBLISHED_FIELDS)), lang=lang),
         ))
-    g.add((dataset, DCT.publisher, correlaid))
-    g.add((dataset, DCT.creator, correlaid))
+    g.add((dataset, DCT.publisher, publisher))
+    g.add((dataset, DCT.creator, publisher))
     g.add((dataset, DCAT.contactPoint, contact))
     g.add((dataset, DCT.language, authority("language", AUTHORITY_CODES["language"])))
     g.add((

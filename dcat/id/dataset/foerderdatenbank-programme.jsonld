@@ -1,13 +1,18 @@
 [
   {
-    "@id": "https://correlaid.org/#organization",
+    "@id": "https://civic-data.de/#organization",
     "@type": [
       "http://xmlns.com/foaf/0.1/Agent"
+    ],
+    "http://www.w3.org/2002/07/owl#sameAs": [
+      {
+        "@id": "http://www.wikidata.org/entity/Q136186131"
+      }
     ],
     "http://xmlns.com/foaf/0.1/name": [
       {
         "@language": "de",
-        "@value": "CorrelAid e.V."
+        "@value": "Civic Data Lab"
       }
     ]
   },
@@ -46,7 +51,7 @@
     ],
     "http://purl.org/dc/terms/creator": [
       {
-        "@id": "https://correlaid.org/#organization"
+        "@id": "https://civic-data.de/#organization"
       }
     ],
     "http://purl.org/dc/terms/description": [
@@ -72,12 +77,12 @@
     "http://purl.org/dc/terms/modified": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
-        "@value": "2026-08-29T00:00:00+00:00"
+        "@value": "2026-08-30T00:00:00+00:00"
       }
     ],
     "http://purl.org/dc/terms/publisher": [
       {
-        "@id": "https://correlaid.org/#organization"
+        "@id": "https://civic-data.de/#organization"
       }
     ],
     "http://purl.org/dc/terms/title": [
@@ -151,17 +156,17 @@
     "http://www.w3.org/2006/vcard/ns#fn": [
       {
         "@language": "de",
-        "@value": "CorrelAid e.V."
+        "@value": "Civic Data Lab"
       }
     ],
     "http://www.w3.org/2006/vcard/ns#hasEmail": [
       {
-        "@id": "mailto:info@correlaid.org"
+        "@id": "mailto:mail@civic-data.de"
       }
     ],
     "http://www.w3.org/2006/vcard/ns#hasURL": [
       {
-        "@id": "https://correlaid.org/"
+        "@id": "https://civic-data.de/"
       }
     ]
   },
@@ -205,7 +210,7 @@
     "http://purl.org/dc/terms/modified": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
-        "@value": "2026-08-29T00:00:00+00:00"
+        "@value": "2026-08-30T00:00:00+00:00"
       }
     ],
     "http://purl.org/dc/terms/title": [

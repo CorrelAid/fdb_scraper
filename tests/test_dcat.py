@@ -28,7 +28,7 @@ import polars as pl
 import pytest
 from pyshacl import validate
 from rdflib import Graph, Literal, URIRef
-from rdflib.namespace import DCAT, DCTERMS, FOAF, RDF, RDFS, SH, SKOS
+from rdflib.namespace import DCAT, DCTERMS, FOAF, OWL, RDF, RDFS, SH, SKOS
 
 from fdb_scraper.schema import PUBLISHED_FIELDS
 from fdb_scraper.config import PIVOTS, VOCAB
@@ -315,18 +315,18 @@ def test_the_dataset_document_is_self_contained(published: Graph) -> None:
         assert (dist, DCAT.downloadURL, None) in published, f"{dist} has no downloadURL"
 
 
-def test_correlaid_is_identified_by_the_uri_its_own_website_publishes(
+def test_the_lab_is_identified_by_the_uri_its_own_website_publishes(
     published: Graph,
 ) -> None:
     """One identifier for the organisation, minted where the organisation is described.
 
-    https://correlaid.org/#organization is the schema.org node the CorrelAid
+    https://civic-data.de/#organization is the schema.org node the Civic Data Lab
     website serves. An agent URI minted under this deployment would be a second
     identifier for the same body, and one this project would then have to serve a
     document for -- a harvester merging two of our datasets would see two
     publishers. So nothing under ``OWN`` may be an agent.
     """
-    organization = URIRef("https://correlaid.org/#organization")
+    organization = URIRef("https://civic-data.de/#organization")
     for predicate in (DCTERMS.publisher, DCTERMS.creator):
         objects = set(published.objects(URIRef(DATASET), predicate))
         assert objects == {organization}, f"{predicate}: {objects}"
@@ -338,14 +338,17 @@ def test_correlaid_is_identified_by_the_uri_its_own_website_publishes(
     ]
     assert not minted_agents, f"an agent minted here: {minted_agents}"
 
-    # A harvester does not dereference, so the name has to travel in this
-    # document. Everything else about the organisation is stated at the IRI, and
-    # a copy here would be a second version of it to go stale.
+    # A harvester does not dereference, so the label has to travel in this
+    # document, and the Wikidata item with it: a catalogue that knows the
+    # organisation by Q136186131 can only join the two if the link is stated.
+    # Everything else about the organisation lives at the IRI, and a copy here
+    # would be a second version of it to go stale.
     said = set(published.predicate_objects(organization))
     assert said == {
         (RDF.type, FOAF.Agent),
-        (FOAF.name, Literal("CorrelAid e.V.", lang="de")),
-    }, f"more than a label is restated about the organisation: {said}"
+        (FOAF.name, Literal("Civic Data Lab", lang="de")),
+        (OWL.sameAs, URIRef("http://www.wikidata.org/entity/Q136186131")),
+    }, f"more than an identity is restated about the organisation: {said}"
 
 
 def test_no_catalogue_is_published(published: Graph) -> None:

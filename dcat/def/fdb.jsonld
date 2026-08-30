@@ -13,12 +13,12 @@
     "http://purl.org/dc/terms/modified": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#date",
-        "@value": "2026-08-29"
+        "@value": "2026-08-30"
       }
     ],
     "http://purl.org/dc/terms/publisher": [
       {
-        "@id": "https://correlaid.org/#organization"
+        "@id": "https://civic-data.de/#organization"
       }
     ],
     "http://purl.org/dc/terms/source": [

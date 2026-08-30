@@ -272,6 +272,21 @@ CREATOR = {
     "wikidata": "http://www.wikidata.org/entity/Q131764066",
 }
 
+# The ministry that holds the rights in the source texts -- LICENSOR above is the
+# same body, as the attribution line spells it, and this is that body as a node a
+# consumer can follow. Identified by its Wikidata item rather than by a URI of its
+# own: the ministry's site publishes no machine-readable node for itself, and the
+# item is the one identifier that survives its renamings (BMWi, BMWK, BMWE are all
+# Q488589). ``type`` is the DCAT-AP.de subset of adms:publishertype, which is how
+# the profile says "this is a federal-level public body"; the profile has no
+# vocabulary that names *which* body -- its contributors list identifies data
+# providers delivering to GovData, which we are not.
+RIGHTS_HOLDER = {
+    "uri": "http://www.wikidata.org/entity/Q488589",
+    "name": LICENSOR,
+    "type": "http://purl.org/adms/publishertype/NationalAuthority",
+}
+
 # Where a reader goes to see how this dataset is built.
 LANDING_PAGE = "https://github.com/CorrelAid/fdb_scraper"
 

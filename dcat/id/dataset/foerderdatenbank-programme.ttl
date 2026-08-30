@@ -44,6 +44,7 @@ One column is model-produced and not part of the source: ``keywords_extracted`` 
     dct:language <http://publications.europa.eu/resource/authority/language/DEU> ;
     dct:modified "2026-08-30T00:00:00+00:00"^^xsd:dateTime ;
     dct:publisher <https://civic-data.de/#organization> ;
+    dct:rightsHolder <http://www.wikidata.org/entity/Q488589> ;
     dct:title
         "Förderprogramme aus der Förderdatenbank des Bundes"@de ,
         "Funding Programmes from the German funding database"@en ;
@@ -60,6 +61,12 @@ One column is model-produced and not part of the source: ``keywords_extracted`` 
         <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
     prov:wasDerivedFrom <https://www.foerderdatenbank.de/FDB/WS/export> ;
     foaf:page <https://www.foerderdatenbank.de/> ;
+.
+
+<http://www.wikidata.org/entity/Q488589>
+    a foaf:Agent ;
+    dct:type <http://purl.org/adms/publishertype/NationalAuthority> ;
+    foaf:name "Bundesministerium für Wirtschaft und Energie"@de ;
 .
 
 <https://civic-data.de/#organization>

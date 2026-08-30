@@ -53,6 +53,7 @@ from fdb_scraper.config import (
     RECORD_CLASS,
     RECORD_COMMENT_DE,
     RECORD_LABEL,
+    RIGHTS_HOLDER,
     SCHEMA_URL,
     SOURCE_HOMEPAGE,
     VOCAB,
@@ -100,6 +101,7 @@ def build_dataset(modified: datetime, sizes: dict[str, int]) -> Graph:
     dataset = URIRef(DATASET)
     publisher = URIRef(PUBLISHER["uri"])
     creator = URIRef(CREATOR["uri"])
+    rights_holder = URIRef(RIGHTS_HOLDER["uri"])
     # The contact point is this dataset's, not the organisation's, so it hangs
     # off the dataset URI: the fragment dereferences to the document that
     # describes it, which no agent URI minted under BASE would.
@@ -114,6 +116,13 @@ def build_dataset(modified: datetime, sizes: dict[str, int]) -> Graph:
         g.add((agent, RDF.type, FOAF.Agent))
         g.add((agent, FOAF.name, Literal(who["name"], lang="de")))
         g.add((agent, OWL.sameAs, URIRef(who["wikidata"])))
+
+    # The rights holder is already a Wikidata node, so there is no second
+    # identifier to link it to. dct:type carries what DCAT-AP.de can say about a
+    # body: which level of the administration it sits at.
+    g.add((rights_holder, RDF.type, FOAF.Agent))
+    g.add((rights_holder, FOAF.name, Literal(RIGHTS_HOLDER["name"], lang="de")))
+    g.add((rights_holder, DCT["type"], URIRef(RIGHTS_HOLDER["type"])))
 
     # DCAT-AP requires a vcard:Kind. Organization is a subclass of it, but the
     # shapes check the asserted type, so state both rather than rely on a
@@ -140,6 +149,9 @@ def build_dataset(modified: datetime, sizes: dict[str, int]) -> Graph:
     # and runs the pipeline behind it.
     g.add((dataset, DCT.publisher, publisher))
     g.add((dataset, DCT.creator, creator))
+    # The rights in the texts stayed with the ministry: publishing the table did
+    # not move them, and no other triple here says so.
+    g.add((dataset, DCT.rightsHolder, rights_holder))
     g.add((dataset, DCAT.contactPoint, contact))
     g.add((dataset, DCT.language, authority("language", AUTHORITY_CODES["language"])))
     g.add((

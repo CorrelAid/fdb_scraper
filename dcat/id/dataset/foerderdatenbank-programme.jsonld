@@ -1,5 +1,22 @@
 [
   {
+    "@id": "http://www.wikidata.org/entity/Q488589",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Agent"
+    ],
+    "http://purl.org/dc/terms/type": [
+      {
+        "@id": "http://purl.org/adms/publishertype/NationalAuthority"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@language": "de",
+        "@value": "Bundesministerium für Wirtschaft und Energie"
+      }
+    ]
+  },
+  {
     "@id": "https://civic-data.de/#organization",
     "@type": [
       "http://xmlns.com/foaf/0.1/Agent"
@@ -100,6 +117,11 @@
     "http://purl.org/dc/terms/publisher": [
       {
         "@id": "https://civic-data.de/#organization"
+      }
+    ],
+    "http://purl.org/dc/terms/rightsHolder": [
+      {
+        "@id": "http://www.wikidata.org/entity/Q488589"
       }
     ],
     "http://purl.org/dc/terms/title": [

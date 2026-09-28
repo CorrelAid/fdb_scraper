@@ -82,7 +82,7 @@ def check_export(export_root: str | Path) -> int:
 
     found: dict[str, list[str]] = {}
     counts: Counter[str] = Counter()
-    checked = 0
+    checked = broken = 0
     for path in content.rglob("*.xml"):
         checked += 1
         try:
@@ -94,6 +94,7 @@ def check_export(export_root: str | Path) -> int:
             messages: list[str] = ["document is not parseable as XML"]
         else:
             messages = list(violations(document))
+        broken += bool(messages)
         for message in messages:
             counts[message] += 1
             examples = found.setdefault(message, [])
@@ -106,7 +107,7 @@ def check_export(export_root: str | Path) -> int:
             for message, count in counts.most_common()
         )
         raise ContractError(
-            f"export structure changed in {checked} documents:\n{report}\n"
+            f"export structure changed in {broken} of {checked} documents:\n{report}\n"
             "If the change is expected, regenerate with scripts/gen_contract.py."
         )
     return checked

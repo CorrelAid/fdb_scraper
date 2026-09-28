@@ -64,6 +64,7 @@ DOCUMENTS = {
         "gsb:comment": "RichText",
         "gsb:dateOfIssue": "Date",
         "gsb:header": "RichText",
+        "gsb:internalComments": "String",
         "gsb:keywords": "String",
         "gsb:languageInd": "LinkList",
         "gsb:remark": "RichText",
